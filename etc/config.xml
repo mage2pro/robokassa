@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='urn:magento:module:Magento_Store:etc/config.xsd'
+>
+    <default>
+		<df_payment>
+			<robokassa>
+				<countries>NZ</countries>
+				<country_restriction>whitelist</country_restriction>
+				<currency>NZD</currency>
+				<description>{store.domain} // {customer.name} // {order.id}</description>
+				<requireBillingAddress>1</requireBillingAddress>
+				<payment_action>authorize_capture</payment_action>
+				<title>Robokassa</title>
+				<title_backend>Robokassa</title_backend>
+			</robokassa>
+		</df_payment>
+        <payment>
+            <dfe_robokassa>
+				<model>Dfe\Robokassa\Method</model>
+            </dfe_robokassa>
+        </payment>
+    </default>
+</config>

@@ -1,0 +1,32 @@
+{
+	"name": "mage2pro/robokassa"
+	,"version": "0.0.1"
+	,"description": "The «Robokassa» payment extension for Magento 2."
+	,"type": "magento2-module"
+	,"homepage": "https://mage2.pro/c/extensions/robokassa"
+	,"license": "proprietary"
+	,"authors": [{
+		"name": "Dmitry Fedyuk",
+		"email": "admin@mage2.pro",
+		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
+		"role": "Developer"
+	}]
+	,"require": {"mage2pro/core": ">=2.4.44"}
+	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Robokassa\\": ""}}
+	,"keywords": [
+		"API"
+		,"Bank card"
+		,"Credit card"
+		,"eCommerce"
+		,"Magento"
+		,"Magento 2"
+		,"Magento extension"
+		,"Malaysia"
+		,"Payment"
+		,"Payment authorization"
+		,"Payment integration"
+		,"Payment gateway"
+		,"Robokassa"
+		,"Russia"
+	]
+}
