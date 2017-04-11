@@ -158,10 +158,24 @@ http://docs.robokassa.ru/en#5197
 					<validate>required-entry validate-length minimum-length-8</validate>
 				</field>
 				<field
+					id='urlResult'
+					translate='label'
+					type='Df\Framework\Form\Element\Webhook'
+					dfWebhook_routePath='dfe-robokassa'
+					sortOrder='8'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Result Url</label>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3667' target='_blank'>Set it in your Robokassa account</a>.</li><li class='df-note'>Select «<b>POST</b>» as a value of the «<b>Method of sending data to Result Url</b>» option in your Robokassa account.</li></ul>]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
 					id='description'
 					translate='label'
 					type='textarea'
-					sortOrder='8'
+					sortOrder='11'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -182,7 +196,7 @@ http://docs.robokassa.ru/en#5197
 					id='requireBillingAddress'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='16'
+					sortOrder='12'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -196,7 +210,7 @@ http://docs.robokassa.ru/en#5197
 					id='min_order_total'
 					translate='label'
 					type='text'
-					sortOrder='19'
+					sortOrder='13'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -210,7 +224,7 @@ http://docs.robokassa.ru/en#5197
 					id='max_order_total'
 					translate='label'
 					type='text'
-					sortOrder='20'
+					sortOrder='14'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -224,7 +238,7 @@ http://docs.robokassa.ru/en#5197
 					id='country_restriction'
 					translate='label'
 					type='select'
-					sortOrder='21'
+					sortOrder='15'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -237,7 +251,7 @@ http://docs.robokassa.ru/en#5197
 					id='countries'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
-					sortOrder='22'
+					sortOrder='16'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
