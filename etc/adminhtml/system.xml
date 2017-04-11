@@ -66,24 +66,30 @@
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
-					id='testPublicKey'
+					id='testPassword1'
 					translate='label'
-					type='text'
+					type='obscure'
 					sortOrder='4'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Test Public Key</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/3240' target='_blank'>How to get it?</a>]]></comment>
+					<label>Test Password #1</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3667' target='_blank'>How to get it?</a>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>1</field>
 					</depends>
-					<validate>required-entry</validate>
+<!-- 2017-04-12
+«This is for the payment initiation interface.
+It must by at least 8 characters long and contain at least one letter and one digit.»
+http://docs.robokassa.ru/en#5197
+-->
+					<validate>required-entry validate-length minimum-length-8</validate>
 				</field>
 				<field
-					id='testPrivateKey'
+					id='testPassword2'
 					translate='label'
 					type='obscure'
 					sortOrder='5'
@@ -91,34 +97,45 @@
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Test Private Key</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/3240' target='_blank'>How to get it?</a>]]></comment>
+					<label>Test Password #2</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3667' target='_blank'>How to get it?</a>]]></comment>
 					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>1</field>
 					</depends>
-					<validate>required-entry</validate>
+<!-- 2017-04-12
+«This is for the payment initiation interface.
+It must by at least 8 characters long and contain at least one letter and one digit.»
+http://docs.robokassa.ru/en#5197
+-->
+					<validate>required-entry validate-length minimum-length-8</validate>
 				</field>
 				<field
-					id='livePublicKey'
+					id='livePassword1'
 					translate='label'
-					type='text'
+					type='obscure'
 					sortOrder='6'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Live Public Key</label>
-					<comment><![CDATA[]]></comment>
+					<label>Live Password #1</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3667' target='_blank'>How to get it?</a>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>0</field>
 					</depends>
-					<validate>required-entry</validate>
+<!-- 2017-04-12
+«This is for the payment initiation interface.
+It must by at least 8 characters long and contain at least one letter and one digit.»
+http://docs.robokassa.ru/en#5197
+-->
+					<validate>required-entry validate-length minimum-length-8</validate>
 				</field>
 				<field
-					id='livePrivateKey'
+					id='livePassword2'
 					translate='label'
 					type='obscure'
 					sortOrder='7'
@@ -126,14 +143,19 @@
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Live Private Key</label>
-					<comment><![CDATA[]]></comment>
+					<label>Live Password #2</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3667' target='_blank'>How to get it?</a>]]></comment>
 					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>0</field>
 					</depends>
-					<validate>required-entry</validate>
+<!-- 2017-04-12
+«This is for the payment initiation interface.
+It must by at least 8 characters long and contain at least one letter and one digit.»
+http://docs.robokassa.ru/en#5197
+-->
+					<validate>required-entry validate-length minimum-length-8</validate>
 				</field>
 				<field
 					id='description'
