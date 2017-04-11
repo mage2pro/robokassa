@@ -6,9 +6,9 @@
     <default>
 		<df_payment>
 			<robokassa>
-				<countries>NZ</countries>
+				<countries>RU</countries>
 				<country_restriction>whitelist</country_restriction>
-				<currency>NZD</currency>
+				<currency>RUB</currency>
 				<description>{store.domain} // {customer.name} // {order.id}</description>
 				<requireBillingAddress>1</requireBillingAddress>
 				<payment_action>authorize_capture</payment_action>
