@@ -157,11 +157,15 @@ http://docs.robokassa.ru/en#5197
 -->
 					<validate>required-entry validate-length minimum-length-8</validate>
 				</field>
+<!-- 2017-04-12
+Whether Robokassa requires a merchant's website to be served over HTTPS? https://mage2.pro/t/3672
+-->
 				<field
 					id='urlResult'
 					translate='label'
 					type='Df\Framework\Form\Element\Webhook'
 					dfWebhook_routePath='dfe-robokassa'
+					dfWebhook_requireHTTPS='true'
 					sortOrder='8'
 					showInDefault='1'
 					showInWebsite='1'
