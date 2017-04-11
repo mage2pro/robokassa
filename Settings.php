@@ -5,7 +5,10 @@ namespace Dfe\Robokassa;
 final class Settings extends \Df\Payment\Settings {
 	/**
 	 * 2017-04-12
-	 * «Password #1»
+	 * «Password #1».
+	 * «This is for the payment initiation interface.
+	 * It must by at least 8 characters long and contain at least one letter and one digit.»
+	 * http://docs.robokassa.ru/en#5197
 	 * [Robokassa] Where are my API credentials and settings located? https://mage2.pro/t/3667
 	 * @return string
 	 */
@@ -13,7 +16,10 @@ final class Settings extends \Df\Payment\Settings {
 
 	/**
 	 * 2017-04-12
-	 * «Password #2»
+	 * «Password #2».
+	 * «This is for the payment notification interface and XML-interfaces.
+	 * It must by at least 8 characters long and contain at least one letter and one digit.»
+	 * http://docs.robokassa.ru/en#5197
 	 * [Robokassa] Where are my API credentials and settings located? https://mage2.pro/t/3667
 	 * @return string
 	 */
