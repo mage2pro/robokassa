@@ -164,7 +164,6 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					id='urlResult'
 					translate='label'
 					type='Df\Framework\Form\Element\Webhook'
-					dfWebhook_routePath='dfe-robokassa'
 					dfWebhook_requireHTTPS='true'
 					sortOrder='8'
 					showInDefault='1'
