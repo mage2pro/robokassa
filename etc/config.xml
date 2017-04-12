@@ -10,8 +10,9 @@
 				<country_restriction>whitelist</country_restriction>
 				<currency>RUB</currency>
 				<description>{store.domain} // {customer.name} // {order.id}</description>
-				<requireBillingAddress>1</requireBillingAddress>
+				<optionsLocation>magento</optionsLocation>
 				<payment_action>authorize_capture</payment_action>
+				<requireBillingAddress>1</requireBillingAddress>
 				<title>Robokassa</title>
 				<title_backend>Robokassa</title_backend>
 			</robokassa>
