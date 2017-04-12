@@ -8,8 +8,8 @@ define([
 	 * @used-by optionsA()
 	 * @returns {Object}
 	 */
-	options: function() {return {
-		'a': "option 1"
-		,'b': 'option 2'
-	};},
+	options: function() {
+		debugger;
+		return {'a': 'option 1', 'b': 'option 2'};
+	},
 });});

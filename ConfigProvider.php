@@ -10,6 +10,6 @@ final class ConfigProvider extends \Df\Payment\ConfigProvider {
 	 * @return array(string => mixed)
 	 */
 	protected function config() {/** @var Settings $s */ $s = $this->s(); return [
-		'merchantId' => $this->s()->merchantID()
+		'options' => Api::s()->options()
 	] + parent::config();}
 }
