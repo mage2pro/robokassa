@@ -9,7 +9,6 @@ define([
 	 * @returns {Object}
 	 */
 	options: function() {
-		debugger;
 		return {'a': 'option 1', 'b': 'option 2'};
 	},
 });});
