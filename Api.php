@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\Robokassa;
 use Df\Xml\X;
+// 2017-04-12
 class Api {
 	/**
 	 * 2017-04-12
@@ -15,7 +16,7 @@ class Api {
 			// 2017-04-15
 			// Using the «demo» account allows to receive the list of all Robokassa payment options.
 			// I use it only for testing and demonstration.
-			'Language' => 'ru', 'MerchantLogin' => df_my('demo', $this->ss()->merchantID())
+			'Language' => 'ru', 'MerchantLogin' => df_my() ? 'demo' : $this->ss()->merchantID()
 		]))->{'Groups'}->{'Group'} as $xGroup) {
 			/** @var X $xGroup */
 			/** @var X[] $xA */
