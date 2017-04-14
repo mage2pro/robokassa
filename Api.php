@@ -12,7 +12,10 @@ class Api {
 		/** @var array(string => array(string => string)) $result */
 		$result = [];
 		foreach (df_xml_parse(df_cache_get_simple(null, 'df_http_get', $url, [
-			'Language' => 'ru', 'MerchantLogin' => $this->ss()->merchantID()
+			// 2017-04-15
+			// Using the «demo» account allows to receive the list of all Robokassa payment options.
+			// I use it only for testing and demonstration.
+			'Language' => 'ru', 'MerchantLogin' => df_my('demo', $this->ss()->merchantID())
 		]))->{'Groups'}->{'Group'} as $xGroup) {
 			/** @var X $xGroup */
 			/** @var X[] $xA */
