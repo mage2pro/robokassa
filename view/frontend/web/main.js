@@ -5,7 +5,7 @@ define([
 	defaults: {df: {test: {showBackendTitle: false}}},
 	/**
 	 * 2017-04-12
-	 * @used-by optionsA()
+	 * @used-by woOptions()
 	 * @returns {Object}
 	 */
 	options: function() {
