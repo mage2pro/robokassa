@@ -18,6 +18,23 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 */
 	protected function pCharge() {$s = $this->s(); return [
 		// 2017-04-16
+		// «Means encoding, in which cash-desk HTML code will return.
+		// By default: windows-1251.
+		// The same parameter ensures
+		// that purchase description (sInvDesc) is correctly displayed in ROBOKASSA interface
+		// and that Additional User Parameters are correctly translated
+		// if their values are in a language other than English.»
+		// http://docs.robokassa.ru/en/#2513
+		// «Кодировка, в которой отображается страница ROBOKASSA.
+		// По умолчанию: windows-1251.
+		// Этот же параметр влияет на корректность отображения описания покупки (InvDesc)
+		// в интерфейсе ROBOKASSA,
+		// и на правильность передачи Дополнительных пользовательских параметров,
+		// если в их значениях присутствует язык отличный от английского.»
+		// http://docs.robokassa.ru/ru/#1201
+		// Optional.
+		'Encoding' => 'utf-8'
+		// 2017-04-16
 		// «Means proposed currency of payment.
 		// This is the payment option you recommend to your buyers/users.
 		// If this parameter is specified, then the buyer during the transition to the site ROBOKASSA
@@ -31,7 +48,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// Покупатель может изменить его в процессе оплаты.»
 		// http://docs.robokassa.ru/ru/#1196
 		// Optional.
-		'IncCurrLabel' => $this->m()->option()
+		,'IncCurrLabel' => $this->m()->option()
 		// 2017-04-16
 		// «Means description of the purchase.
 		// Only English or Russian letters, digits and punctuation marks may be used.
