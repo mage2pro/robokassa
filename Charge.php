@@ -18,6 +18,21 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 */
 	protected function pCharge() {$s = $this->s(); return [
 		// 2017-04-16
+		// «Means proposed currency of payment.
+		// This is the payment option you recommend to your buyers/users.
+		// If this parameter is specified, then the buyer during the transition to the site ROBOKASSA
+		// will get to the payment page with the specified payment method.
+		// The buyer may change it in the process of payment.»
+		// http://docs.robokassa.ru/en/#2510
+		// «Предлагаемый способ оплаты.
+		// Тот вариант оплаты, который Вы рекомендуете использовать своим покупателям.
+		// Если параметр указан, то покупатель при переходе на сайт ROBOKASSA
+		// попадёт на страницу оплаты с выбранным способом оплаты.
+		// Покупатель может изменить его в процессе оплаты.»
+		// http://docs.robokassa.ru/en/#1196
+		// Optional.
+		'IncCurrLabel' => $this->m()->option()
+		// 2017-04-16
 		// «Means description of the purchase.
 		// Only English or Russian letters, digits and punctuation marks may be used.
 		// Maximum 100 characters.
@@ -37,7 +52,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// http://docs.robokassa.ru/#1189
 		// Required.
 		// @todo Проверить, что будет, если передать недопустимые символы.
-		'InvDesc' => mb_substr($this->description(), 0, 100)
+		,'InvDesc' => mb_substr($this->description(), 0, 100)
 		// 2017-04-16
 		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
 		// http://docs.robokassa.ru/en/#2503
