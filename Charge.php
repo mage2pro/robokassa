@@ -18,6 +18,25 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 */
 	protected function pCharge() {$s = $this->s(); return [
 		// 2017-04-16
+		// «Optional, means language the client will use to communicate with your website.
+		// It can have the following values: en, ru.
+		// This is in accordance with ISO 3166-1.
+		// i.e. you initially choose the language of ROBOKASSA interface the client will see.
+		// If no language is chosen (used),
+		// then the language will be as in the regional settings of the client’s browser.
+		// If the regional settings are other than Russian, then English will automatically switch on.»
+		// http://docs.robokassa.ru/en/#2550
+		// «Язык общения с клиентом (в соответствии с ISO 3166-1).
+		// Определяет на каком языке будет страница ROBOKASSA, на которую попадёт покупатель.
+		// Может принимать значения: en, ru.
+		// Если параметр не передан, то используются региональные настройки браузера покупателя.
+		// Для значений отличных от ru или en используется английский язык.»
+		// http://docs.robokassa.ru/ru/#1202
+		// Optional.
+		// Я явно передаю значение этого параметра,
+		// чтобы мне было удобно снимать демо-ролик с требуемым мне языком интерфейса.
+		'Culture' => df_locale_ru('ru', 'en')
+		// 2017-04-16
 		// «The buyer’s E-Mail is automatically inserted into ROBOKASSA payment form.
 		// The user may change it in the process of payment.
 		// It will be used if the user already specified his contact E-Mail on your website.»
@@ -26,7 +45,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// Пользователь может изменить его в процессе оплаты.»
 		// http://docs.robokassa.ru/ru/#1202
 		// Optional.
-		'Email' => $this->customerEmail()
+		,'Email' => $this->customerEmail()
 		// 2017-04-16
 		// «Means encoding, in which cash-desk HTML code will return.
 		// By default: windows-1251.
@@ -81,13 +100,26 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// @todo Проверить, что будет, если передать недопустимые символы.
 		,'InvDesc' => mb_substr($this->description(), 0, 100)
 		// 2017-04-16
+		// «In order to initiate test operation of payment through your shop,
+		// you must add the parameter IsTest with the value 1 to the script.
+		// If this parameter is absent, or as a parameter value IsTest was transferred to 0,
+		// or the value is empty, such a request is not considered as a test payment
+		// and initializes the normal payment operation..»
+		// http://docs.robokassa.ru/en/#3914
+		// «Для того, что бы со стороны магазина инициировать тестовую операцию оплаты,
+		// в скрипт к остальным параметрам необходимо добавить параметр IsTest со значением 1.
+		// Если данный параметр вообще отсутствует, или в качестве значения параметра IsTest передан 0,
+		// или значение параметра пусто, то такой запрос не считается тестовым
+		// и происходит инициализация обычной операции оплаты.»
+		// http://docs.robokassa.ru/ru/#2388
+		,'isTest' => $s->test() ? 1 : 0
+		// 2017-04-16
 		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
 		// http://docs.robokassa.ru/en/#2503
 		// «Идентификатор магазина в ROBOKASSA, который Вы придумали при создании магазина.»
 		// http://docs.robokassa.ru/ru/#1068
 		// Required.
 		,'MerchantLogin' => $s->merchantID()
-		//
 		// 2017-04-16
 		// «Means the amount payable (in other words, the price of the order placed by the client).
 		// The format of presentation – dot-delimited digits. For example 123.45.

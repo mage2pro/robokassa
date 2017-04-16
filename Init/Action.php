@@ -10,5 +10,5 @@ final class Action extends \Df\PaypalClone\Init\Action {
 	 * @used-by \Df\Payment\Init\Action::action()
 	 * @return string
 	 */
-	protected function redirectUrl() {return '';}
+	protected function redirectUrl() {return 'https://auth.robokassa.ru/Merchant/Index.aspx';}
 }
