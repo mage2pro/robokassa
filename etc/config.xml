@@ -10,7 +10,9 @@
 				<country_restriction>whitelist</country_restriction>
 				<currency>RUB</currency>
 <!-- 2001-04-16
-Сделал значением по умочанию {order.items}, потому что это именно то, что рекомендует документация ПС.
+Сделал значением по умочанию {order.items}, потому что это именно то, что рекомендует документация ПС:
+https://github.com/mage2pro/robokassa/blob/0.1.2/Charge.php#L20-L39
+[Mage2.PRO] Which variables can I use in a payment's description? https://mage2.pro/t/1834
 -->
 				<description>{order.items}</description>
 				<optionsLocation>magento</optionsLocation>

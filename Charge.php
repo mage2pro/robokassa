@@ -36,6 +36,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// (см. Необязательные параметры).»
 		// http://docs.robokassa.ru/#1189
 		// Required.
+		// @todo Проверить, что будет, если передать недопустимые символы.
 		'InvDesc' => mb_substr($this->description(), 0, 100)
 		// 2017-04-16
 		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
