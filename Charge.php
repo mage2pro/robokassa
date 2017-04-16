@@ -76,10 +76,12 @@ final class Charge extends \Df\PaypalClone\Charge {
 
 	/**
 	 * 2017-04-10
+	 * http://docs.robokassa.ru/#1190
+	 * http://docs.robokassa.ru/en/#2506
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_Signature()
 	 * @used-by \Df\PaypalClone\Charge::p()
 	 * @return string
 	 */
-	protected function k_Signature() {return '';}
+	protected function k_Signature() {return 'SignatureValue';}
 }
