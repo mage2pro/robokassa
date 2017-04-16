@@ -12,7 +12,7 @@ namespace Dfe\Robokassa\Signer;
 // This is a very important parameter which ensures the security of payment
 // and integrity of data transmission.
 // If it is correctly compiled, no intruder will be able to forge any data in the payment transaction.
-// http://docs.robokassa.ru/en/#2506
+// http://docs.robokassa.ru/en#2506
 //
 // «Контрольная сумма - хэш, число в 16-ричной форме и любом регистре (0-9, A-F),
 // рассчитанное методом указанным в Технических настройках магазина.
@@ -24,7 +24,7 @@ namespace Dfe\Robokassa\Signer;
 // и целостность передаваемых данных.
 // Корректное его составление гарантирует, что злоумышленник не сможет подделать какие-либо данные
 // в операции оплаты.»
-// http://docs.robokassa.ru/ru/#1190
+// http://docs.robokassa.ru/ru#1190
 final class Request extends \Dfe\Robokassa\Signer {
 	/**
 	 * 2017-04-10

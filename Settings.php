@@ -10,6 +10,7 @@ final class Settings extends \Df\Payment\Settings {
 	 * It must by at least 8 characters long and contain at least one letter and one digit.»
 	 * http://docs.robokassa.ru/en#5197
 	 * [Robokassa] Where are my API credentials and settings located? https://mage2.pro/t/3667
+	 * @used-by \Dfe\Robokassa\Signer\Request::values()
 	 * @return string
 	 */
 	function password1() {return $this->testableP();}
@@ -21,6 +22,7 @@ final class Settings extends \Df\Payment\Settings {
 	 * It must by at least 8 characters long and contain at least one letter and one digit.»
 	 * http://docs.robokassa.ru/en#5197
 	 * [Robokassa] Where are my API credentials and settings located? https://mage2.pro/t/3667
+	 * @used-by \Dfe\Robokassa\Signer\Response::values()
 	 * @return string
 	 */
 	function password2() {return $this->testableP();}

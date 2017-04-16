@@ -5,9 +5,9 @@ final class Method extends \Df\PaypalClone\Method {
 	/**
 	 * 2017-04-16
 	 * «The format of presentation – dot-delimited digits. For example 123.45.»
-	 * http://docs.robokassa.ru/en/#2504
+	 * http://docs.robokassa.ru/en#2504
 	 * «Формат представления — число, разделитель — точка, например: 123.45.»
-	 * http://docs.robokassa.ru/#1188
+	 * http://docs.robokassa.ru#1188
 	 * @override
 	 * @see \Df\Payment\Method::amountFormat()
 	 * @used-by \Df\Payment\Operation::amountFormat()
@@ -26,9 +26,9 @@ final class Method extends \Df\PaypalClone\Method {
 	/**
 	 * 2017-04-16
 	 * «The format of presentation – dot-delimited digits. For example 123.45.»
-	 * http://docs.robokassa.ru/en/#2504
+	 * http://docs.robokassa.ru/en#2504
 	 * «Формат представления — число, разделитель — точка, например: 123.45.»
-	 * http://docs.robokassa.ru/#1188
+	 * http://docs.robokassa.ru#1188
 	 * @override
 	 * @see \Df\Payment\Method::amountFactor()
 	 * @used-by \Df\Payment\Method::amountFormat()

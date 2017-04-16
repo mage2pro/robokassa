@@ -3,8 +3,8 @@ namespace Dfe\Robokassa;
 /**
  * 2017-04-10
  * 2017-04-16
- * «Description of variables, parameters and values»: http://docs.robokassa.ru/en/#2501
- * «Описание переменных, параметров и значений»: http://docs.robokassa.ru/ru/#1061
+ * «Description of variables, parameters and values»: http://docs.robokassa.ru/en#2501
+ * «Описание переменных, параметров и значений»: http://docs.robokassa.ru/ru#1061
  * @method Method m()
  * @method Settings s()
  */
@@ -25,13 +25,13 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// If no language is chosen (used),
 		// then the language will be as in the regional settings of the client’s browser.
 		// If the regional settings are other than Russian, then English will automatically switch on.»
-		// http://docs.robokassa.ru/en/#2550
+		// http://docs.robokassa.ru/en#2550
 		// «Язык общения с клиентом (в соответствии с ISO 3166-1).
 		// Определяет на каком языке будет страница ROBOKASSA, на которую попадёт покупатель.
 		// Может принимать значения: en, ru.
 		// Если параметр не передан, то используются региональные настройки браузера покупателя.
 		// Для значений отличных от ru или en используется английский язык.»
-		// http://docs.robokassa.ru/ru/#1202
+		// http://docs.robokassa.ru/ru#1202
 		// Optional.
 		// Я явно передаю значение этого параметра,
 		// чтобы мне было удобно снимать демо-ролик с требуемым мне языком интерфейса.
@@ -40,10 +40,10 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// «The buyer’s E-Mail is automatically inserted into ROBOKASSA payment form.
 		// The user may change it in the process of payment.
 		// It will be used if the user already specified his contact E-Mail on your website.»
-		// http://docs.robokassa.ru/en/#2514
+		// http://docs.robokassa.ru/en#2514
 		// «E-Mail покупателя автоматически подставляется в платёжную форму ROBOKASSA.
 		// Пользователь может изменить его в процессе оплаты.»
-		// http://docs.robokassa.ru/ru/#1202
+		// http://docs.robokassa.ru/ru#1202
 		// Optional.
 		,'Email' => $this->customerEmail()
 		// 2017-04-16
@@ -53,14 +53,14 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// that purchase description (sInvDesc) is correctly displayed in ROBOKASSA interface
 		// and that Additional User Parameters are correctly translated
 		// if their values are in a language other than English.»
-		// http://docs.robokassa.ru/en/#2513
+		// http://docs.robokassa.ru/en#2513
 		// «Кодировка, в которой отображается страница ROBOKASSA.
 		// По умолчанию: windows-1251.
 		// Этот же параметр влияет на корректность отображения описания покупки (InvDesc)
 		// в интерфейсе ROBOKASSA,
 		// и на правильность передачи Дополнительных пользовательских параметров,
 		// если в их значениях присутствует язык отличный от английского.»
-		// http://docs.robokassa.ru/ru/#1201
+		// http://docs.robokassa.ru/ru#1201
 		// Optional.
 		,'Encoding' => 'utf-8'
 		// 2017-04-16
@@ -69,13 +69,13 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// If this parameter is specified, then the buyer during the transition to the site ROBOKASSA
 		// will get to the payment page with the specified payment method.
 		// The buyer may change it in the process of payment.»
-		// http://docs.robokassa.ru/en/#2510
+		// http://docs.robokassa.ru/en#2510
 		// «Предлагаемый способ оплаты.
 		// Тот вариант оплаты, который Вы рекомендуете использовать своим покупателям.
 		// Если параметр указан, то покупатель при переходе на сайт ROBOKASSA
 		// попадёт на страницу оплаты с выбранным способом оплаты.
 		// Покупатель может изменить его в процессе оплаты.»
-		// http://docs.robokassa.ru/ru/#1196
+		// http://docs.robokassa.ru/ru#1196
 		// Optional.
 		,'IncCurrLabel' => $this->m()->option()
 		// 2017-04-16
@@ -87,7 +87,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// and the E-Receipt we issue to the client after completion of payment.
 		// It may be reflected correctly if the optional parameter Encoding is activated
 		// (see Optional Parameters).»
-		// http://docs.robokassa.ru/en/#2505
+		// http://docs.robokassa.ru/en#2505
 		// «Описание покупки,
 		// можно использовать только символы английского или русского алфавита, цифры и знаки препинания.
 		// Максимальная длина — 100 символов.
@@ -95,7 +95,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// которую мы выдаём клиенту после успешного платежа.
 		// Корректность отображения зависит от необязательного параметра Encoding
 		// (см. Необязательные параметры).»
-		// http://docs.robokassa.ru/ru/#1189
+		// http://docs.robokassa.ru/ru#1189
 		// Required.
 		// @todo Проверить, что будет, если передать недопустимые символы.
 		,'InvDesc' => mb_substr($this->description(), 0, 100)
@@ -105,19 +105,19 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// If this parameter is absent, or as a parameter value IsTest was transferred to 0,
 		// or the value is empty, such a request is not considered as a test payment
 		// and initializes the normal payment operation..»
-		// http://docs.robokassa.ru/en/#3914
+		// http://docs.robokassa.ru/en#3914
 		// «Для того, что бы со стороны магазина инициировать тестовую операцию оплаты,
 		// в скрипт к остальным параметрам необходимо добавить параметр IsTest со значением 1.
 		// Если данный параметр вообще отсутствует, или в качестве значения параметра IsTest передан 0,
 		// или значение параметра пусто, то такой запрос не считается тестовым
 		// и происходит инициализация обычной операции оплаты.»
-		// http://docs.robokassa.ru/ru/#2388
+		// http://docs.robokassa.ru/ru#2388
 		,'isTest' => $s->test() ? 1 : 0
 		// 2017-04-16
 		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
-		// http://docs.robokassa.ru/en/#2503
+		// http://docs.robokassa.ru/en#2503
 		// «Идентификатор магазина в ROBOKASSA, который Вы придумали при создании магазина.»
-		// http://docs.robokassa.ru/ru/#1068
+		// http://docs.robokassa.ru/ru#1068
 		// Required.
 		,'MerchantLogin' => $s->merchantID()
 		// 2017-04-16
@@ -127,14 +127,14 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// However, if the prices are denominated (e.g.) in USD on your website
 		// when issuing the invoice you need to specify the amount converted from USD to RUB.
 		// (see Optional Parameters OutSumCurrency).»
-		// http://docs.robokassa.ru/en/#2504
+		// http://docs.robokassa.ru/en#2504
 		// «Требуемая к получению сумма (буквально — стоимость заказа, сделанного клиентом).
 		// Формат представления — число, разделитель — точка, например: 123.45.
 		// Сумма должна быть указана в рублях.
 		// Но, если стоимость товаров у Вас на сайте указана, например, в долларах,
 		// то при выставлении счёта к оплате Вам необходимо указывать уже пересчитанную сумму
 		// из долларов в рубли. См. необязательный параметр OutSumCurrency.»
-		// http://docs.robokassa.ru/ru/#1188
+		// http://docs.robokassa.ru/ru#1188
 		// Required.
 		,'OutSum' => $this->amountF()
 		// 2017-04-16
@@ -143,7 +143,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// Если этот параметр передан, то он будет встроен в расчет контрольной суммы SignatureValue.
 		// Этот параметр пользователь передает при оплате.
 		// При расчете контрольной суммы UserIp ставится перед Пароль#1.»
-		// http://docs.robokassa.ru/ru/#6415
+		// http://docs.robokassa.ru/ru#6415
 		,'UserIP' => $this->customerIp()
 	];}
 
@@ -156,7 +156,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * It may vary from 1 to 2147483647 (2^31-1).
 	 * If this parameter is passed, it should be included in the calculation of the checksum
 	 * (SignatureValue).»
-	 * http://docs.robokassa.ru/en/#2509
+	 * http://docs.robokassa.ru/en#2509
 	 * Номер счета в магазине.
 	 * Необязательный параметр, но мы настоятельно рекомендуем его использовать.
 	 * Значение этого параметра должно быть уникальным для каждой оплаты.
@@ -166,7 +166,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * Используйте данную возможность только в очень простых магазинах,
 	 * где не требуется какого-либо контроля оплаты.
 	 * Если параметр передан, то он должен быть включён в расчёт контрольной суммы (SignatureValue).
-	 * http://docs.robokassa.ru/ru/#1194
+	 * http://docs.robokassa.ru/ru#1194
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_RequestId()
 	 * @used-by \Df\PaypalClone\Charge::p()
@@ -176,8 +176,8 @@ final class Charge extends \Df\PaypalClone\Charge {
 
 	/**
 	 * 2017-04-10
-	 * http://docs.robokassa.ru/en/#2506
-	 * http://docs.robokassa.ru/ru/#1190
+	 * http://docs.robokassa.ru/en#2506
+	 * http://docs.robokassa.ru/ru#1190
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_Signature()
 	 * @used-by \Df\PaypalClone\Charge::p()
