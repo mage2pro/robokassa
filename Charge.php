@@ -18,12 +18,32 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 */
 	protected function pCharge() {$s = $this->s(); return [
 		// 2017-04-16
+		// «Means description of the purchase.
+		// Only English or Russian letters, digits and punctuation marks may be used.
+		// Maximum 100 characters.
+		// In other words, this is the name of the goods the client is purchasing.
+		// This information is reflected in ROBOKASSA interface
+		// and the E-Receipt we issue to the client after completion of payment.
+		// It may be reflected correctly if the optional parameter Encoding is activated
+		// (see Optional Parameters).»
+		// http://docs.robokassa.ru/en/#2505
+		// «Описание покупки,
+		// можно использовать только символы английского или русского алфавита, цифры и знаки препинания.
+		// Максимальная длина — 100 символов.
+		// Эта информация отображается в интерфейсе ROBOKASSA и в Электронной квитанции,
+		// которую мы выдаём клиенту после успешного платежа.
+		// Корректность отображения зависит от необязательного параметра Encoding
+		// (см. Необязательные параметры).»
+		// http://docs.robokassa.ru/#1189
+		// Required.
+		'InvDesc' => mb_substr($this->description(), 0, 100)
+		// 2017-04-16
 		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
 		// http://docs.robokassa.ru/en/#2503
 		// «Идентификатор магазина в ROBOKASSA, который Вы придумали при создании магазина.»
-		// http://docs.robokassa.ru/en/#1068
+		// http://docs.robokassa.ru/#1068
 		// Required.
-		'MerchantLogin' => $s->merchantID()
+		,'MerchantLogin' => $s->merchantID()
 		//
 		// 2017-04-16
 		// «Means the amount payable (in other words, the price of the order placed by the client).

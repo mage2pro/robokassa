@@ -9,7 +9,10 @@
 				<countries>RU</countries>
 				<country_restriction>whitelist</country_restriction>
 				<currency>RUB</currency>
-				<description>{store.domain} // {customer.name} // {order.id}</description>
+<!-- 2001-04-16
+Сделал значением по умочанию {order.items}, потому что это именно то, что рекомендует документация ПС.
+-->
+				<description>{order.items}</description>
 				<optionsLocation>magento</optionsLocation>
 				<payment_action>authorize_capture</payment_action>
 				<requireBillingAddress>1</requireBillingAddress>
