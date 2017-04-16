@@ -22,5 +22,5 @@ abstract class Signer extends \Df\PaypalClone\Signer {
 	 * @see \Df\PaypalClone\Signer::sign()
 	 * @return string
 	 */
-	final protected function sign() {return implode($this->values());}
+	final protected function sign() {return md5(implode(':', $this->values()));}
 }

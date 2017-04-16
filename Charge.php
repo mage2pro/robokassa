@@ -18,6 +18,16 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 */
 	protected function pCharge() {$s = $this->s(); return [
 		// 2017-04-16
+		// «The buyer’s E-Mail is automatically inserted into ROBOKASSA payment form.
+		// The user may change it in the process of payment.
+		// It will be used if the user already specified his contact E-Mail on your website.»
+		// http://docs.robokassa.ru/en/#2514
+		// «E-Mail покупателя автоматически подставляется в платёжную форму ROBOKASSA.
+		// Пользователь может изменить его в процессе оплаты.»
+		// http://docs.robokassa.ru/ru/#1202
+		// Optional.
+		'Email' => $this->customerEmail()
+		// 2017-04-16
 		// «Means encoding, in which cash-desk HTML code will return.
 		// By default: windows-1251.
 		// The same parameter ensures
@@ -33,7 +43,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// если в их значениях присутствует язык отличный от английского.»
 		// http://docs.robokassa.ru/ru/#1201
 		// Optional.
-		'Encoding' => 'utf-8'
+		,'Encoding' => 'utf-8'
 		// 2017-04-16
 		// «Means proposed currency of payment.
 		// This is the payment option you recommend to your buyers/users.
@@ -95,6 +105,14 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// http://docs.robokassa.ru/ru/#1188
 		// Required.
 		,'OutSum' => $this->amountF()
+		// 2017-04-16
+		// «Передача этого параметра (Ip конечного пользователя) желательна для усиления безопастности,
+		// предотвращению фрода и противодействию мошенникам.
+		// Если этот параметр передан, то он будет встроен в расчет контрольной суммы SignatureValue.
+		// Этот параметр пользователь передает при оплате.
+		// При расчете контрольной суммы UserIp ставится перед Пароль#1.»
+		// http://docs.robokassa.ru/ru/#6415
+		,'UserIP' => $this->customerIp()
 	];}
 
 	/**
