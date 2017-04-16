@@ -4,7 +4,7 @@ namespace Dfe\Robokassa;
  * 2017-04-10
  * 2017-04-16
  * «Description of variables, parameters and values»: http://docs.robokassa.ru/en/#2501
- * «Описание переменных, параметров и значений»: http://docs.robokassa.ru/#1061
+ * «Описание переменных, параметров и значений»: http://docs.robokassa.ru/ru/#1061
  * @method Method m()
  * @method Settings s()
  */
@@ -29,7 +29,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// Если параметр указан, то покупатель при переходе на сайт ROBOKASSA
 		// попадёт на страницу оплаты с выбранным способом оплаты.
 		// Покупатель может изменить его в процессе оплаты.»
-		// http://docs.robokassa.ru/en/#1196
+		// http://docs.robokassa.ru/ru/#1196
 		// Optional.
 		'IncCurrLabel' => $this->m()->option()
 		// 2017-04-16
@@ -49,15 +49,35 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// которую мы выдаём клиенту после успешного платежа.
 		// Корректность отображения зависит от необязательного параметра Encoding
 		// (см. Необязательные параметры).»
-		// http://docs.robokassa.ru/#1189
+		// http://docs.robokassa.ru/ru/#1189
 		// Required.
 		// @todo Проверить, что будет, если передать недопустимые символы.
 		,'InvDesc' => mb_substr($this->description(), 0, 100)
 		// 2017-04-16
+		// «Means your invoice number.
+		// The optional parameter, but we strongly recommend using it.
+		// It should be unique each time your client is redirected for payment to our system.
+		// It may vary from 1 to 2147483647 (2^31-1).
+		// If this parameter is passed, it should be included in the calculation of the checksum
+		// (SignatureValue).»
+		// http://docs.robokassa.ru/en/#2509
+		// Номер счета в магазине.
+		// Необязательный параметр, но мы настоятельно рекомендуем его использовать.
+		// Значение этого параметра должно быть уникальным для каждой оплаты.
+		// Может принимать значения от 1 до 2147483647 (231-1).
+		// Если значение параметра пустое, или равно 0, или параметр вовсе не указан,
+		// то при создании операции оплаты ему автоматически будет присвоено уникальное значение.
+		// Используйте данную возможность только в очень простых магазинах,
+		// где не требуется какого-либо контроля оплаты.
+		// Если параметр передан, то он должен быть включён в расчёт контрольной суммы (SignatureValue).
+		// http://docs.robokassa.ru/ru/#1194
+		// Optional.
+		,'InvId' => ''
+		// 2017-04-16
 		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
 		// http://docs.robokassa.ru/en/#2503
 		// «Идентификатор магазина в ROBOKASSA, который Вы придумали при создании магазина.»
-		// http://docs.robokassa.ru/#1068
+		// http://docs.robokassa.ru/ru/#1068
 		// Required.
 		,'MerchantLogin' => $s->merchantID()
 		//
@@ -75,7 +95,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// Но, если стоимость товаров у Вас на сайте указана, например, в долларах,
 		// то при выставлении счёта к оплате Вам необходимо указывать уже пересчитанную сумму
 		// из долларов в рубли. См. необязательный параметр OutSumCurrency.»
-		// http://docs.robokassa.ru/#1188
+		// http://docs.robokassa.ru/ru/#1188
 		// Required.
 		,'OutSum' => $this->amountF()
 	];}
@@ -92,7 +112,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 	/**
 	 * 2017-04-10
 	 * http://docs.robokassa.ru/en/#2506
-	 * http://docs.robokassa.ru/#1190
+	 * http://docs.robokassa.ru/ru/#1190
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_Signature()
 	 * @used-by \Df\PaypalClone\Charge::p()

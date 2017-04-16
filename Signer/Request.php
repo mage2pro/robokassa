@@ -24,7 +24,7 @@ namespace Dfe\Robokassa\Signer;
 // и целостность передаваемых данных.
 // Корректное его составление гарантирует, что злоумышленник не сможет подделать какие-либо данные
 // в операции оплаты.»
-// http://docs.robokassa.ru/#1190
+// http://docs.robokassa.ru/ru/#1190
 final class Request extends \Dfe\Robokassa\Signer {
 	/**
 	 * 2017-04-10
