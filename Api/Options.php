@@ -1,13 +1,18 @@
 <?php
-namespace Dfe\Robokassa;
+namespace Dfe\Robokassa\Api;
 use Df\Xml\X;
 // 2017-04-12
-class Api {
+final class Options {
 	/**
 	 * 2017-04-12
+	 * 2017-04-16
+	 * Результат записит как от $merchantId, так и от $locale,
+	 * поэтому эти параметры надо учитывать при расчёте ключа кэширования.
+	 * @used-by \Dfe\Robokassa\ConfigProvider::options()
 	 * @return array(string => array(string => string))
 	 */
-	function options() {
+	static function p() {return dfcf(function($merchantId, $locale) {
+		/** @var mixed $result */
 		/** @var string $url */
 		$url = 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies';
 		/** @var array(string => array(string => string)) $result */
@@ -16,8 +21,7 @@ class Api {
 			// 2017-04-15
 			// Using the «demo» account allows to receive the list of all Robokassa payment options.
 			// I use it only for testing and demonstration.
-			'Language' => df_locale_ru('ru', 'en')
-			,'MerchantLogin' => df_my() ? 'demo' : $this->ss()->merchantID()
+			'Language' => $locale, 'MerchantLogin' => $merchantId
 		]))->{'Groups'}->{'Group'} as $xGroup) {
 			/** @var X $xGroup */
 			/** @var X[] $xA */
@@ -36,23 +40,8 @@ class Api {
 					,'Name' => df_leaf_s($xIA['Name'])
 				];
 			}
-			$result[df_leaf_s($xA['Code'])] = [
-				'title' => df_leaf_s($xA['Description'])
-				,'items' => $items
-			];
+			$result[df_leaf_s($xA['Code'])] = ['title' => df_leaf_s($xA['Description']), 'items' => $items];
 		}
 		return $result;
-	}
-
-	/**
-	 * 2017-04-12
-	 * @return Settings
-	 */
-	private function ss() {return dfps($this);}
-
-	/**
-	 * 2017-04-12
-	 * @return self
-	 */
-	public static function s() {static $r; return $r ? $r : $r = new self;}
+	}, [df_my() ? 'demo' : dfps(__CLASS__)->merchantID(), df_locale_ru('ru', 'en')]);}
 }

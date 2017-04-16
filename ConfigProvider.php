@@ -23,5 +23,5 @@ final class ConfigProvider extends \Df\Payment\ConfigProvider {
 			'label' => $i['Name'], 'value' => $i['Label']
 		];}, $v['items'])
 		,'label' => $v['title'], 'value' => $k
-	];}, Api::s()->options()));}
+	];}, \Dfe\Robokassa\Api\Options::p()));}
 }
