@@ -246,10 +246,32 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
-					id='optionsLocation'
+					id='identification'
 					translate='label'
 					type='select'
 					sortOrder='13'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Payment Identification Type</label>
+					<source_model>Df\PaypalClone\Source\Identification</source_model>
+					<comment><![CDATA[
+<p class='note'>«<b>Visible ID</b>» is the recommended value for the most shops,
+because it allows you to locate a payment in the Robokassa Merchant Backend
+knowing only the order's visible identifier.</p>
+<p class='note'>Robokassa allows only digits in the payment identifiers,
+so the «Visible ID» option will not work if order identifiers
+contain some other symbols.</p>
+<p class='note'>For example, the «<a href='https://mage2.pro/t/topic/512' target='_blank'>Sales Documents Numeration</a>» extension allows you to implement a custom order numeration scheme like <b>ORD-2016/07-00327</b>.</p>
+<p class='note'>If you use such non-standard orders numbers, then choose the «<b>Internal ID</b>» value for the «Payment Identification Type» option.</p>]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='optionsLocation'
+					translate='label'
+					type='select'
+					sortOrder='14'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -263,7 +285,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					id='requireBillingAddress'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='14'
+					sortOrder='15'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -277,7 +299,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					id='min_order_total'
 					translate='label'
 					type='text'
-					sortOrder='15'
+					sortOrder='16'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -291,7 +313,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					id='max_order_total'
 					translate='label'
 					type='text'
-					sortOrder='16'
+					sortOrder='17'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -305,7 +327,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					id='country_restriction'
 					translate='label'
 					type='select'
-					sortOrder='17'
+					sortOrder='18'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -318,7 +340,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					id='countries'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
-					sortOrder='18'
+					sortOrder='19'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
