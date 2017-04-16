@@ -4,5 +4,4 @@
 	xsi:noNamespaceSchemaLocation='urn:magento:framework:ObjectManager/etc/config.xsd'
 >
 	<virtualType name='Dfe\Robokassa\Controller\Index\Index' type='Df\Payment\W\Action'/>
-	<virtualType name='Dfe\Robokassa\W\Handler' type='Df\PaypalClone\W\Handler'/>
 </config>
