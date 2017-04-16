@@ -1,5 +1,96 @@
 The extension integrates your Magento 2 store with the **[Robokassa](https://www.robokassa.ru/en)** payment service (Russia).
 
+## The available payment options for Russia
+### e-wallet
+- QIWI Wallet
+- Yandex.Money
+- WMR
+- ElecsnetWallet
+- RUR W1
+### Internet Banking
+- Bank Card
+- Alfa-Click
+- Russian Standard Bank
+- VTB24
+- RUR W1
+-  Moscow Industrial Bank
+-  Banca Intesa
+-  Bank AVB
+-  BINBANK
+- Federal Bank For Innovation And Development
+- Mezhtopenergobank
+-  Sovcombank
+-  National Bank TRUST
+-  HandyBank
+-  Bank Obrazovanie
+-  FlexBank
+-  FutureBank
+-  KranBank
+-  KostromaSelcombank
+-  NS Bank
+-  WestInterBank
+-  Credit Ural Bank
+### Bank card
+-  Bank Card
+-  Apple Pay
+-  Samsung Pay
+### terminal
+-  QIWI Wallet
+### mobile operator
+-  Mts
+-  Tele2
+-  Tattelecom
+-   Beeline
+-  Megafon
+### other methods
+- Euroset
+- Svyaznoy
+
+### Электронным кошельком
+ - QIWI Кошелек
+ - Яндекс.Деньги
+ -  WMR
+ - Кошелек Элекснет
+ -  RUR Единый кошелек
+### Через интернет-банк
+ -  Банковская карта
+ -  Альфа-Клик
+ -  Банк Русский Стандарт
+ -  ВТБ24
+ -  RUR Единый кошелек
+ - Московский Индустриальный Банк
+ -  Банк Интеза
+ -  Банк АВБ
+ -  БИНБАНК
+ - ФБ Инноваций и Развития
+ - Межтопэнергобанк
+ - Совкомбанк
+ - Национальный банк ТРАСТ
+ - HandyBank
+ -  Банк Образование
+ - ФлексБанк
+ - ФьючерБанк
+ -  КранБанк
+ - Костромаселькомбанк
+ -  Независимый строительный банк
+ - ВестИнтерБанк
+ - Кредит Урал Банк
+### Банковской картой
+  -  Банковская карта
+  -  Apple Pay
+  -  Samsung Pay
+### В терминале
+  -  QIWI Кошелек
+### Сотовые операторы
+  -  МТС
+  -  Tele2
+  -  Таттелеком
+  -  Билайн
+  -  Мегафон
+### Другие способы
+  -   Евросеть
+  -   Связной
+
 ## How to buy
 The extension is not released yet, so there is no way to buy it just now.  
 The extension will be released before 2017-04-24.   
