@@ -54,26 +54,6 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// @todo Проверить, что будет, если передать недопустимые символы.
 		,'InvDesc' => mb_substr($this->description(), 0, 100)
 		// 2017-04-16
-		// «Means your invoice number.
-		// The optional parameter, but we strongly recommend using it.
-		// It should be unique each time your client is redirected for payment to our system.
-		// It may vary from 1 to 2147483647 (2^31-1).
-		// If this parameter is passed, it should be included in the calculation of the checksum
-		// (SignatureValue).»
-		// http://docs.robokassa.ru/en/#2509
-		// Номер счета в магазине.
-		// Необязательный параметр, но мы настоятельно рекомендуем его использовать.
-		// Значение этого параметра должно быть уникальным для каждой оплаты.
-		// Может принимать значения от 1 до 2147483647 (231-1).
-		// Если значение параметра пустое, или равно 0, или параметр вовсе не указан,
-		// то при создании операции оплаты ему автоматически будет присвоено уникальное значение.
-		// Используйте данную возможность только в очень простых магазинах,
-		// где не требуется какого-либо контроля оплаты.
-		// Если параметр передан, то он должен быть включён в расчёт контрольной суммы (SignatureValue).
-		// http://docs.robokassa.ru/ru/#1194
-		// Optional.
-		,'InvId' => ''
-		// 2017-04-16
 		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
 		// http://docs.robokassa.ru/en/#2503
 		// «Идентификатор магазина в ROBOKASSA, который Вы придумали при создании магазина.»
@@ -102,12 +82,30 @@ final class Charge extends \Df\PaypalClone\Charge {
 
 	/**
 	 * 2017-04-10
+	 * 2017-04-16
+	 * «Means your invoice number.
+	 * The optional parameter, but we strongly recommend using it.
+	 * It should be unique each time your client is redirected for payment to our system.
+	 * It may vary from 1 to 2147483647 (2^31-1).
+	 * If this parameter is passed, it should be included in the calculation of the checksum
+	 * (SignatureValue).»
+	 * http://docs.robokassa.ru/en/#2509
+	 * Номер счета в магазине.
+	 * Необязательный параметр, но мы настоятельно рекомендуем его использовать.
+	 * Значение этого параметра должно быть уникальным для каждой оплаты.
+	 * Может принимать значения от 1 до 2147483647 (231-1).
+	 * Если значение параметра пустое, или равно 0, или параметр вовсе не указан,
+	 * то при создании операции оплаты ему автоматически будет присвоено уникальное значение.
+	 * Используйте данную возможность только в очень простых магазинах,
+	 * где не требуется какого-либо контроля оплаты.
+	 * Если параметр передан, то он должен быть включён в расчёт контрольной суммы (SignatureValue).
+	 * http://docs.robokassa.ru/ru/#1194
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_RequestId()
 	 * @used-by \Df\PaypalClone\Charge::p()
 	 * @return string
 	 */
-	protected function k_RequestId() {return '';}
+	protected function k_RequestId() {return 'InvId';}
 
 	/**
 	 * 2017-04-10
