@@ -1,0 +1,10 @@
+// 2017-04-17
+form.dfe_robokassa {
+	ul.df-options.df-level-2 {
+		-moz-column-gap: 1em; -webkit-column-gap: 1em; column-gap: 1em;
+		.columns(@c) {-moz-column-count: @c; -webkit-column-count: @c; column-count: @c;}
+		@media (min-width: 570px) {.columns(2);}
+		@media (min-width: 1400px) {.columns(3);}
+	}
+	//.df-choice label {display: inline-block; color: transparent;}
+}
