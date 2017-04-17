@@ -44,6 +44,19 @@ final class Options {
 	), self::$LABEL, self::$ID_SPECIFIC);}, [df_store($s)]);}
 
 	/**
+	 * 2017-04-17
+	 * Опция «Единая Касса» (Wallet One) почему-то попадает сразу в 2 раздела:
+	 * 1) в правильный: «Электронным кошельком»
+	 * 2) в неправильный: «Через интернет-банк»
+	 * Исключаем её из раздела «Через интернет-банк».
+	 * @used-by p()
+	 * @param string $g
+	 * @param string $i
+	 * @return bool
+	 */
+	private static function excluded($g, $i) {return 'Bank' === $g && 'W1' === $i;}
+
+	/**
 	 * 2017-04-12
 	 * 2017-04-16
 	 * Результат записит как от $merchantId, так и от $locale,
@@ -74,21 +87,26 @@ final class Options {
 			$xA = $xGroup->attributes();
 			/** @var array(array(string => string)) $items */
 			$items = [];
+			/** @var string $gCode */
+			$gCode = df_leaf_s($xA['Code']);
 			foreach ($xGroup->{'Items'}->{'Currency'} as $xI) {
 				/** @var X $xI */
 				/** @var X[] $xIA */
 				$xIA = $xI->attributes();
-				$items[]= [
-					self::$ID_UNIVERSAL => df_leaf_s($xIA['Alias'])
-					,self::$ID_SPECIFIC => df_leaf_s($xIA['Label'])
-					,self::$MAX => df_leaf_s($xIA['MaxValue'])
-					,self::$MIN => df_leaf_s($xIA['MinValue'])
-					,self::$LABEL => df_leaf_s($xIA['Name'])
-				];
+				/** @var string $alias */
+				if (!self::excluded($gCode, $alias = df_leaf_s($xIA['Alias']))) {
+					$items[]= [
+						self::$ID_UNIVERSAL => $alias
+						,self::$ID_SPECIFIC => df_leaf_s($xIA['Label'])
+						,self::$MAX => df_leaf_s($xIA['MaxValue'])
+						,self::$MIN => df_leaf_s($xIA['MinValue'])
+						,self::$LABEL => df_leaf_s($xIA['Name'])
+					];
+				}
 			}
-			$result[df_leaf_s($xA['Code'])] = [
-				self::$G_TITLE => df_leaf_s($xA['Description']), self::$ITEMS => $items
-			];
+			if ($items) {
+				$result[$gCode] = [self::$G_TITLE => df_leaf_s($xA['Description']), self::$ITEMS => $items];
+			}
 		}
 		return $result;
 	}, [$canUseDemo && df_my() ? 'demo' : dfps(__CLASS__)->merchantID($s), df_locale_ru('ru', 'en')]);}
