@@ -11,6 +11,6 @@ final class ConfigProvider extends \Df\Payment\ConfigProvider {
 	 * @return array(string => mixed)
 	 */
 	protected function config() {/** @var Settings $s */ $s = $this->s(); return [
-		'options' => Options::forCheckout()
+		'options' => Options::forCheckout($this->amount())
 	] + parent::config();}
 }

@@ -14,15 +14,23 @@ final class Options {
 	 * <Currency Label="BANKOCEAN3R" Alias="BankCard" Name="Bank Card"/>
 	 * А для моего магазина «2016-10-18-2» он описан так:
 	 * <Currency Label="QCardR" Alias="BankCard" Name="Bank Card"/>
-	 * @used-by config()
+	 * @used-by \Dfe\Robokassa\ConfigProvider::config()
+	 * @param float $a
 	 * @return array(string => mixed)
 	 */
-	static function forCheckout() {return array_values(df_map_k(function($k, array $v) {return [
-		'children' => df_map(function(array $i) {return [
-			'label' => $i['Name'], 'value' => $i['Alias']
-		];}, $v['items'])
-		,'label' => $v['title'], 'value' => $k
-	];}, self::p(null, true)));}
+	static function forCheckout($a) {return array_values(array_filter(df_map_k(
+		function($k, array $g) use($a) {return
+			!($items = array_values(array_filter($g[self::$ITEMS], function(array $i) use($a) {return
+				(!($max = dfa($i, self::$MAX)) || $a <= $max)
+				&& (!($min = dfa($i, self::$MIN)) || $a >= $min)
+			;}))) ? null : [
+				'children' => df_map(function(array $i) {return [
+					'label' => $i[self::$LABEL], 'value' => $i[self::$ID_UNIVERSAL]
+				];}, $items)
+				,'label' => $g[self::$G_TITLE], 'value' => $k
+			]
+		;}, self::p(null, true)
+	)));}
 
 	/**
 	 * 2017-04-17
@@ -31,15 +39,18 @@ final class Options {
 	 * @param null|string|int|IScope|Store $s [optional]
 	 * @return array(string => string)
 	 */
-	static function map($s = null) {return dfcf(function($s) {return array_column(array_merge(...array_column(
-		self::p($s), 'items'
-	)), 'Name', 'Label');}, [df_store($s)]);}
+	static function map($s = null) {return dfcf(function($s) {return array_column(array_merge(
+		...array_column(self::p($s), self::$ITEMS)
+	), self::$LABEL, self::$ID_SPECIFIC);}, [df_store($s)]);}
 
 	/**
 	 * 2017-04-12
 	 * 2017-04-16
 	 * Результат записит как от $merchantId, так и от $locale,
 	 * поэтому эти параметры надо учитывать при расчёте ключа кэширования.
+	 * 2017-04-17
+	 * https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies?MerchantLogin=2016-10-18-2&Language=ru
+	 * https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies?MerchantLogin=demo&Language=ru
 	 * @used-by forCheckout()
 	 * @used-by map()
 	 * @param null|string|int|IScope|Store $s [optional]
@@ -68,15 +79,75 @@ final class Options {
 				/** @var X[] $xIA */
 				$xIA = $xI->attributes();
 				$items[]= [
-					'Alias' => df_leaf_s($xIA['Alias'])
-					,'Label' => df_leaf_s($xIA['Label'])
-					,'MaxValue' => df_leaf_s($xIA['MaxValue'])
-					,'MinValue' => df_leaf_s($xIA['MinValue'])
-					,'Name' => df_leaf_s($xIA['Name'])
+					self::$ID_UNIVERSAL => df_leaf_s($xIA['Alias'])
+					,self::$ID_SPECIFIC => df_leaf_s($xIA['Label'])
+					,self::$MAX => df_leaf_s($xIA['MaxValue'])
+					,self::$MIN => df_leaf_s($xIA['MinValue'])
+					,self::$LABEL => df_leaf_s($xIA['Name'])
 				];
 			}
-			$result[df_leaf_s($xA['Code'])] = ['title' => df_leaf_s($xA['Description']), 'items' => $items];
+			$result[df_leaf_s($xA['Code'])] = [
+				self::$G_TITLE => df_leaf_s($xA['Description']), self::$ITEMS => $items
+			];
 		}
 		return $result;
 	}, [$canUseDemo && df_my() ? 'demo' : dfps(__CLASS__)->merchantID($s), df_locale_ru('ru', 'en')]);}
+
+	/**
+	 * 2017-04-17 Зависит от локали. Для банковской карты: «Банковская карта», «Bank card».
+	 * @used-by forCheckout()
+	 * @used-by p()
+	 * @var string
+	 */
+	private static $G_TITLE = 'title';
+
+	/**
+	 * 2017-04-17
+	 * Зависит от магазина. Например, для банковской карты может быть: «QCardR», «BANKOCEAN3R».
+	 * @used-by map()
+	 * @used-by p()
+	 * @var string
+	 */
+	private static $ID_SPECIFIC = 'id_specific';
+
+	/**
+	 * 2017-04-17 Не зависит от магазина. Для банковской карты: «BankCard».
+	 * @used-by forCheckout()
+	 * @used-by p()
+	 * @var string
+	 */
+	private static $ID_UNIVERSAL = 'id_universal';
+
+	/**
+	 * 2017-04-17
+	 * @used-by forCheckout()
+	 * @used-by map()
+	 * @used-by p()
+	 * @var string
+	 */
+	private static $ITEMS = 'items';
+
+	/**
+	 * 2017-04-17
+	 * @used-by forCheckout()
+	 * @used-by p()
+	 * @var string
+	 */
+	private static $MAX = 'max';
+	/**
+	 * 2017-04-17
+	 * @used-by forCheckout()
+	 * @used-by p()
+	 * @var string
+	 */
+	private static $MIN = 'min';
+
+	/**
+	 * 2017-04-17
+	 * @used-by forCheckout()
+	 * @used-by map()
+	 * @used-by p()
+	 * @var string
+	 */
+	private static $LABEL = 'label';
 }
