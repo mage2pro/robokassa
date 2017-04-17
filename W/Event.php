@@ -1,7 +1,15 @@
 <?php
 namespace Dfe\Robokassa\W;
+use Dfe\Robokassa\Api\Options;
 // 2017-04-16
 final class Event extends \Df\PaypalClone\W\Event {
+	/**
+	 * 2017-04-17
+	 * @used-by \Dfe\Robokassa\Choice::title()
+	 * @return string
+	 */
+	function optionTitle() {return dftr($this->r('IncCurrLabel'), Options::map());}
+
 	/**
 	 * 2017-04-16
 	 * Robokassa не возвращают своего идентификатора для платежей

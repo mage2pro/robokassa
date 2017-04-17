@@ -7,5 +7,8 @@ final class Basic extends TestCase {
 	function t01() {echo df_dump([$this->s()->password1(), $this->s()->password2()]);}
 
 	/** @test 2017-04-12 */
-	function t02() {echo df_dump(Options::p());}
+	function t02() {echo df_dump(Options::map());}
+
+	/** 2017-04-17 */
+	function t03() {echo intval(df_my());}
 }
