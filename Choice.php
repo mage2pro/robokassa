@@ -13,6 +13,6 @@ final class Choice extends \Df\Payment\Choice {
 	 * @return Phrase|string|null
 	 */
 	function title() {return dfc($this, function() {return /** @var Event $ev */
-		($ev = $this->responseF()) ? $ev->optionTitle() :  null
+		($ev = $this->responseF()) ? $ev->optionTitle($this->m()->store()) :  null
 	;});}
 }

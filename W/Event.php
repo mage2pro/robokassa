@@ -1,14 +1,17 @@
 <?php
 namespace Dfe\Robokassa\W;
 use Dfe\Robokassa\Api\Options;
+use Magento\Framework\App\ScopeInterface as IScope;
+use Magento\Store\Model\Store;
 // 2017-04-16
 final class Event extends \Df\PaypalClone\W\Event {
 	/**
 	 * 2017-04-17
 	 * @used-by \Dfe\Robokassa\Choice::title()
+	 * @param null|string|int|IScope|Store $s [optional]
 	 * @return string
 	 */
-	function optionTitle() {return dftr($this->r('IncCurrLabel'), Options::map());}
+	function optionTitle($s = null) {return dftr($this->r('IncCurrLabel'), Options::map($s));}
 
 	/**
 	 * 2017-04-16
