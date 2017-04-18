@@ -46,7 +46,7 @@ final class Options {
 	/**
 	 * 2017-04-17
 	 * Замечание №1
-	 * Опция «Единая Касса» (Wallet One) почему-то попадает сразу в 2 раздела:
+	 * Опция «Единая Касса» (Wallet One) размещена сразу в 2 разделах:
 	 * 1) в правильный: «Электронным кошельком»
 	 * 2) в неправильный: «Через интернет-банк»
 	 * Исключаем её из раздела «Через интернет-банк».
@@ -116,6 +116,29 @@ final class Options {
 			if ($items) {
 				$result[$gCode] = [self::$G_TITLE => df_leaf_s($xA['Description']), self::$ITEMS => $items];
 			}
+		}
+		// 2017-04-18
+		// Опция «QIWI Кошелёк» размещена сразу в 2 разделах: «Электронным кошельком» и «В терминале»,
+		// причём в разделе «В терминале» она является единственной опцией,
+		// а опция «Элекснет», которую разумно было бы поместить в раздел «В терминале»,
+		// размещена в разделе «Электронным кошельком».
+		// Решил сделать так:
+		// 1) Исключить опцию «QIWI Кошелёк» из раздела «В терминале».
+		// 2) Объединить разделы «Электронным кошельком» и «В терминале» в единый раздел
+		// «Электронным кошельком / В терминале».
+		/** @var array(string => string|array)|null $gTerminals */
+		$gTerminals = dfa($result, 'Terminals');
+		/** @var array(string => string|array)|null $gWallet */
+		$gWallet = dfa($result, 'EMoney');
+		if ($gTerminals && $gWallet) {
+			$result['EMoney'] = [
+				self::$G_TITLE => "{$gWallet[self::$G_TITLE]} / {$gTerminals[self::$G_TITLE]}"
+				// 2017-04-18 Таким алгоритмом мы удаляем дубликаты.
+				,self::$ITEMS => array_values(df_map_kr(function($k, $v) {return [
+					$v[self::$ID_UNIVERSAL],$v
+				];}, array_merge($gWallet[self::$ITEMS], $gTerminals[self::$ITEMS])))
+			];
+			unset($result['Terminals']);
 		}
 		return $result;
 	}, [$canUseDemo && df_my() ? 'demo' : dfps(__CLASS__)->merchantID($s), df_locale_ru('ru', 'en')]);}
