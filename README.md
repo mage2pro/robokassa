@@ -2,6 +2,10 @@ The extension integrates your Magento 2 store with the **[Robokassa](https://www
 
 Robokassa has **[10% market share (2017)](https://mage2.pro/t/3716)** among the payment service providers in Russia by the number of websites using it.
 
+## Screenshots
+### Frontend checkout screen
+![](https://mage2.pro/uploads/default/original/2X/7/75603a659272ea9223636e927255f65e3ada2713.png)
+
 ## The available payment options for Russia
 ### e-wallet
 - QIWI Wallet
@@ -94,8 +98,8 @@ Robokassa has **[10% market share (2017)](https://mage2.pro/t/3716)** among the 
   -   Связной
 
 ## How to buy
-The extension is not released yet, so there is no way to buy it just now.  
-The extension will be released before 2017-04-24.   
+You can buy it with PayPal [here](https://mage2.pro/t/3122).  
+There are [local payment options](http://magento-forum.ru/topic/1003) available to Russia-based customers.
 
 ## How to install
 ### 1. Free installation service
