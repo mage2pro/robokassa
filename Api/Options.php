@@ -140,8 +140,16 @@ final class Options {
 			];
 			unset($result['Terminals']);
 		}
-		// 2017-04-18
-		// Порядок следования разделов на странице оформления заказа.
+		/** @var array(string => int) $w */
+  		/** @var array(string => string|array)|null $gMobile */
+		if ($gMobile = dfa($result, 'Mobile')) {
+			// 2017-04-18 Порядок следования мобильных операторов.
+			$w = array_flip(['PhoneMTS', 'PhoneBeeline', 'PhoneMegafon', 'PhoneTele2', 'PhoneTatTelecom']);
+			$result['Mobile'] = [self::$ITEMS => df_sort($gMobile[self::$ITEMS], function($a, $b) use ($w) {
+				return dfa($w, $a[self::$ID_UNIVERSAL], -1) - dfa($w, $b[self::$ID_UNIVERSAL], -1)
+			;})] + $gMobile;
+		}
+		// 2017-04-18 Порядок следования разделов.
 		/** @var array(string => int) $w */
 		$w = array_flip(['BankCard', 'Bank', 'EMoney', 'Mobile', 'Other']);
 		return df_ksort($result, function($a, $b) use($w) {return dfa($w, $a, -1) - dfa($w, $b, -1);});
