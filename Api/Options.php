@@ -140,7 +140,11 @@ final class Options {
 			];
 			unset($result['Terminals']);
 		}
-		return $result;
+		// 2017-04-18
+		// Порядок следования разделов на странице оформления заказа.
+		/** @var array(string => int) $w */
+		$w = array_flip(['BankCard', 'Bank', 'EMoney', 'Mobile', 'Other']);
+		return df_ksort($result, function($a, $b) use($w) {return dfa($w, $a, -1) - dfa($w, $b, -1);});
 	}, [$canUseDemo && df_my() ? 'demo' : dfps(__CLASS__)->merchantID($s), df_locale_ru('ru', 'en')]);}
 
 	/**
