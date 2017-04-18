@@ -9,6 +9,9 @@ Robokassa has **[10% market share (2017)](https://mage2.pro/t/3716)** among the 
 ### Backend settings
 ![](https://mage2.pro/uploads/default/original/2X/c/c9e01821a3c024a0797a1af60737748af4744a8c.png)
 
+### Backend order list
+![](https://mage2.pro/uploads/default/original/2X/e/e4c40ecd83861b67aea62c32206337a83660a085.png)
+
 ## The available payment options for Russia
 ### e-wallet
 - QIWI Wallet
