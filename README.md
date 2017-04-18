@@ -4,7 +4,10 @@ Robokassa has **[10% market share (2017)](https://mage2.pro/t/3716)** among the 
 
 ## Screenshots
 ### Frontend checkout screen
-![](https://mage2.pro/uploads/default/original/2X/7/75603a659272ea9223636e927255f65e3ada2713.png)
+![](https://mage2.pro/uploads/default/original/2X/b/b9ac8abfd4771d6d9860a70e05fba3d27bc1eb10.png)
+
+### Backend settings
+![](https://mage2.pro/uploads/default/original/2X/c/c9e01821a3c024a0797a1af60737748af4744a8c.png)
 
 ## The available payment options for Russia
 ### e-wallet
