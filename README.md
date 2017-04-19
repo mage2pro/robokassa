@@ -2,6 +2,9 @@ The extension integrates your Magento 2 store with the **[Robokassa](https://www
 
 Robokassa has **[10% market share (2017)](https://mage2.pro/t/3716)** among the payment service providers in Russia by the number of websites using it.
 
+## Demo video
+https://www.youtube.com/watch?v=hK3dBmW4tg4&list=PLTq8uOpBQGsFVidNBE9PO3G366IJ0JBTv
+
 ## Screenshots
 ### Frontend checkout screen
 ![](https://mage2.pro/uploads/default/original/2X/b/b9ac8abfd4771d6d9860a70e05fba3d27bc1eb10.png)
