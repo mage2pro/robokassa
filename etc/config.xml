@@ -15,7 +15,6 @@ https://github.com/mage2pro/robokassa/blob/0.1.2/Charge.php#L20-L39
 [Mage2.PRO] Which variables can I use in a payment's description? https://mage2.pro/t/1834
 -->
 				<description>{order.items}</description>
-				<optionsLocation>magento</optionsLocation>
 				<payment_action>authorize_capture</payment_action>
 				<requireBillingAddress>1</requireBillingAddress>
 				<title>Robokassa</title>

@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/robokassa"
-	,"version": "1.0.1"
+	,"version": "1.0.2"
 	,"description": "The «Robokassa» (Робокасса) payment extension for Magento 2."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/robokassa"

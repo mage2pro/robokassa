@@ -268,20 +268,6 @@ contain some other symbols.</p>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
-					id='optionsLocation'
-					translate='label'
-					type='select'
-					sortOrder='14'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Where to ask for a payment option?</label>
-					<source_model>Df\PaypalClone\Source\OptionsLocation</source_model>
-					<comment><![CDATA[]]></comment>
-					<depends><field id='enable'>1</field></depends>
-				</field>
-				<field
 					id='requireBillingAddress'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
