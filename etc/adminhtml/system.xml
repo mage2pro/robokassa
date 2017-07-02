@@ -15,7 +15,6 @@
 			<group
 				id='robokassa'
 				translate='label'
-				type='text'
 				sortOrder='1601'
 				showInDefault='1'
 				showInWebsite='1'
