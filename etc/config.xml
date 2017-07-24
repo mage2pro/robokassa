@@ -23,6 +23,14 @@ https://github.com/mage2pro/robokassa/blob/0.1.2/Charge.php#L20-L39
 		</df_payment>
         <payment>
             <dfe_robokassa>
+
+<!-- 2017-07-24
+@used-by \Magento\Payment\Helper\Data::getMethodModelConfigName():
+	protected function getMethodModelConfigName($code) {
+		return sprintf('%s/%s/model', self::XML_PATH_PAYMENT_METHODS, $code);
+	}
+https://github.com/magento/magento2/blob/2.2.0-RC1.5/app/code/Magento/Payment/Helper/Data.php#L85-L92
+-->
 				<model>Dfe\Robokassa\Method</model>
             </dfe_robokassa>
         </payment>
