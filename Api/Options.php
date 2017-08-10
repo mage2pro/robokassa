@@ -80,12 +80,11 @@ final class Options {
 	 * @return array(string => array(string => string))
 	 */
 	private static function p($s = null, $canUseDemo = false) {return dfcf(function($merchantId, $locale) {
-		/** @var mixed $result */
-		/** @var string $url */
+		/** @var mixed $result */ /** @var string $url */
 		$url = 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies';
 		/** @var array(string => array(string => string)) $result */
 		$result = [];
-		foreach (df_xml_parse(df_cache_get_simple(null, 'df_http_get', $url, [
+		foreach (df_xml_parse(df_cache_get_simple(null, 'df_http_get', [], $url, [
 			// 2017-04-15
 			// Using the «demo» account allows to receive the list of all Robokassa payment options.
 			// I use it only for testing and demonstration.
@@ -145,7 +144,7 @@ final class Options {
 		if ($gMobile = dfa($result, 'Mobile')) {
 			// 2017-04-18 Порядок следования мобильных операторов.
 			$w = array_flip(['PhoneMTS', 'PhoneBeeline', 'PhoneMegafon', 'PhoneTele2', 'PhoneTatTelecom']);
-			$result['Mobile'] = [self::$ITEMS => df_sort($gMobile[self::$ITEMS], function($a, $b) use ($w) {
+			$result['Mobile'] = [self::$ITEMS => df_sort($gMobile[self::$ITEMS], function($a, $b) use($w) {
 				return dfa($w, $a[self::$ID_UNIVERSAL], -1) - dfa($w, $b[self::$ID_UNIVERSAL], -1)
 			;})] + $gMobile;
 		}
