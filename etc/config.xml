@@ -15,6 +15,21 @@ https://github.com/mage2pro/robokassa/blob/0.1.2/Charge.php#L20-L39
 [Mage2.PRO] Which variables can I use in a payment's description? https://mage2.pro/t/1834
 -->
 				<description>{order.items}</description>
+<!-- 2017-08-14
+Note 1:
+*) Param name: `InvId`
+*) Param type and limitations: «It may vary from 1 to 2147483647 (2^31-1)».
+*) Reference:
+	1) In Russian: http://docs.robokassa.ru/ru#1194
+	2) In English: http://docs.robokassa.ru/en#2509
+Note 2:
+`Magento 2.0.x and 2.1.x both depend on the «ctype» PHP extension, but they do not document it`:
+https://mage2.pro/t/4274
+-->
+				<identification_rules>
+					<ctype_digit/>
+					<max_int>2147483647</max_int>
+				</identification_rules>
 				<payment_action>authorize_capture</payment_action>
 				<requireBillingAddress>1</requireBillingAddress>
 				<title>Robokassa</title>
