@@ -51,6 +51,7 @@ final class Event extends \Df\PaypalClone\W\Event {
 
 	/**
 	 * 2017-04-16
+	 * 2017-08-14 Robokassa does not return a payment's status.
 	 * @override
 	 * @see \Df\PaypalClone\W\Event::k_status()
 	 * @used-by \Df\PaypalClone\W\Event::status()
