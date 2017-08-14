@@ -44,7 +44,6 @@ final class Event extends \Df\PaypalClone\W\Event {
 	 * «Номер счета в магазине»: http://docs.robokassa.ru/ru#1253
 	 * @override
 	 * @see \Df\PaypalClone\W\Event::k_signature()
-	 * @see \Dfe\IPay88\W\Event::k_signature()
 	 * @used-by \Df\PaypalClone\W\Event::signatureProvided()
 	 * @return string
 	 */
@@ -58,13 +57,4 @@ final class Event extends \Df\PaypalClone\W\Event {
 	 * @return string|null
 	 */
 	protected function k_status() {return null;}
-
-	/**
-	 * 2017-04-16
-	 * @override
-	 * @see \Df\PaypalClone\W\Event::statusExpected()
-	 * @used-by \Df\PaypalClone\W\Event::isSuccessful()
-	 * @return int
-	 */
-	protected function statusExpected() {return null;}
 }
