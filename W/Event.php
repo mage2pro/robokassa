@@ -3,7 +3,17 @@ namespace Dfe\Robokassa\W;
 use Dfe\Robokassa\Api\Options;
 use Magento\Framework\App\ScopeInterface as IScope;
 use Magento\Store\Model\Store;
-// 2017-04-16
+/**
+ * 2017-04-16
+ * 2017-08-14
+ * As I understand from the documentation, Robokassa does not send an «offine» event for a pending payment.
+ * If a customer has chosen to pay offline,
+ * then Robokassa will send event to us only then the payment is actually done.
+ * «Проводить подтверждение оплаты у себя по базе и все остальные действия, связанные с выдачей покупки,
+ * Вам нужно при получении уведомления на ResultURL,
+ * потому что именно на него ROBOKASSA передаёт подтверждающие данные об оплате.»
+ * https://docs.robokassa.ru/ru#1261
+ */
 final class Event extends \Df\PaypalClone\W\Event {
 	/**
 	 * 2017-04-17
