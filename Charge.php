@@ -10,6 +10,21 @@ namespace Dfe\Robokassa;
  */
 final class Charge extends \Df\PaypalClone\Charge {
 	/**
+	 * 2017-08-19   
+	 * 2017-04-16
+	 * «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
+	 * http://docs.robokassa.ru/en#2503
+	 * «Идентификатор магазина в ROBOKASSA, который Вы придумали при создании магазина.»
+	 * http://docs.robokassa.ru/ru#1068
+	 * Required.
+	 * @override
+	 * @see \Df\PaypalClone\Charge::k_MerchantId()
+	 * @used-by \Df\PaypalClone\Charge::p()
+	 * @return string
+	 */
+	protected function k_MerchantId() {return 'MerchantLogin';}
+	
+	/**
 	 * 2017-04-10
 	 * 2017-04-16
 	 * «Means your invoice number.
@@ -151,13 +166,6 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// и происходит инициализация обычной операции оплаты.»
 		// http://docs.robokassa.ru/ru#2388
 		,'isTest' => $s->test() ? 1 : 0
-		// 2017-04-16
-		// «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
-		// http://docs.robokassa.ru/en#2503
-		// «Идентификатор магазина в ROBOKASSA, который Вы придумали при создании магазина.»
-		// http://docs.robokassa.ru/ru#1068
-		// Required.
-		,'MerchantLogin' => $s->merchantID()
 		// 2017-04-16
 		// «Means the amount payable (in other words, the price of the order placed by the client).
 		// The format of presentation – dot-delimited digits. For example 123.45.
