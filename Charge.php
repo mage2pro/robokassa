@@ -10,6 +10,31 @@ namespace Dfe\Robokassa;
  */
 final class Charge extends \Df\PaypalClone\Charge {
 	/**
+	 * 2017-08-19
+	 * 2017-04-16
+	 * «Means the amount payable (in other words, the price of the order placed by the client).
+	 * The format of presentation – dot-delimited digits. For example 123.45.
+	 * The amount should be denominated in RUB.
+	 * However, if the prices are denominated (e.g.) in USD on your website
+	 * when issuing the invoice you need to specify the amount converted from USD to RUB.
+	 * (see Optional Parameters OutSumCurrency).»
+	 * http://docs.robokassa.ru/en#2504
+	 * «Требуемая к получению сумма (буквально — стоимость заказа, сделанного клиентом).
+	 * Формат представления — число, разделитель — точка, например: 123.45.
+	 * Сумма должна быть указана в рублях.
+	 * Но, если стоимость товаров у Вас на сайте указана, например, в долларах,
+	 * то при выставлении счёта к оплате Вам необходимо указывать уже пересчитанную сумму
+	 * из долларов в рубли. См. необязательный параметр OutSumCurrency.»
+	 * http://docs.robokassa.ru/ru#1188
+	 * Required.
+	 * @override
+	 * @see \Df\PaypalClone\Charge::k_Amount()
+	 * @used-by \Df\PaypalClone\Charge::p()
+	 * @return string
+	 */
+	protected function k_Amount() {return 'OutSum';}
+
+	/**
 	 * 2017-08-19   
 	 * 2017-04-16
 	 * «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
@@ -166,23 +191,6 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// и происходит инициализация обычной операции оплаты.»
 		// http://docs.robokassa.ru/ru#2388
 		,'isTest' => $s->test() ? 1 : 0
-		// 2017-04-16
-		// «Means the amount payable (in other words, the price of the order placed by the client).
-		// The format of presentation – dot-delimited digits. For example 123.45.
-		// The amount should be denominated in RUB.
-		// However, if the prices are denominated (e.g.) in USD on your website
-		// when issuing the invoice you need to specify the amount converted from USD to RUB.
-		// (see Optional Parameters OutSumCurrency).»
-		// http://docs.robokassa.ru/en#2504
-		// «Требуемая к получению сумма (буквально — стоимость заказа, сделанного клиентом).
-		// Формат представления — число, разделитель — точка, например: 123.45.
-		// Сумма должна быть указана в рублях.
-		// Но, если стоимость товаров у Вас на сайте указана, например, в долларах,
-		// то при выставлении счёта к оплате Вам необходимо указывать уже пересчитанную сумму
-		// из долларов в рубли. См. необязательный параметр OutSumCurrency.»
-		// http://docs.robokassa.ru/ru#1188
-		// Required.
-		,'OutSum' => $this->amountF()
 		// 2017-04-16
 		// «Передача этого параметра (Ip конечного пользователя) желательна для усиления безопастности,
 		// предотвращению фрода и противодействию мошенникам.
