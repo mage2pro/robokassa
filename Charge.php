@@ -35,6 +35,24 @@ final class Charge extends \Df\PaypalClone\Charge {
 	protected function k_Amount() {return 'OutSum';}
 
 	/**
+	 * 2017-08-19
+	 * 2017-04-16
+	 * «The buyer’s E-Mail is automatically inserted into ROBOKASSA payment form.
+	 * The user may change it in the process of payment.
+	 * It will be used if the user already specified his contact E-Mail on your website.»
+	 * http://docs.robokassa.ru/en#2514
+	 * «E-Mail покупателя автоматически подставляется в платёжную форму ROBOKASSA.
+	 * Пользователь может изменить его в процессе оплаты.»
+	 * http://docs.robokassa.ru/ru#1202
+	 * Optional.
+	 * @override
+	 * @see \Df\PaypalClone\Charge::k_Email()
+	 * @used-by \Df\PaypalClone\Charge::p()
+	 * @return string
+	 */
+	protected function k_Email() {return 'Email';}
+
+	/**
 	 * 2017-08-19   
 	 * 2017-04-16
 	 * «Means the Shop Identifier in ROBOKASSA you specified upon creation of the Shop.»
@@ -114,16 +132,6 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// Я явно передаю значение этого параметра,
 		// чтобы мне было удобно снимать демо-ролик с требуемым мне языком интерфейса.
 		'Culture' => df_locale_ru('ru', 'en')
-		// 2017-04-16
-		// «The buyer’s E-Mail is automatically inserted into ROBOKASSA payment form.
-		// The user may change it in the process of payment.
-		// It will be used if the user already specified his contact E-Mail on your website.»
-		// http://docs.robokassa.ru/en#2514
-		// «E-Mail покупателя автоматически подставляется в платёжную форму ROBOKASSA.
-		// Пользователь может изменить его в процессе оплаты.»
-		// http://docs.robokassa.ru/ru#1202
-		// Optional.
-		,'Email' => $this->customerEmail()
 		// 2017-04-16
 		// «Means encoding, in which cash-desk HTML code will return.
 		// By default: windows-1251.
