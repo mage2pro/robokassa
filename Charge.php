@@ -131,7 +131,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// Optional.
 		// Я явно передаю значение этого параметра,
 		// чтобы мне было удобно снимать демо-ролик с требуемым мне языком интерфейса.
-		'Culture' => df_locale_ru('ru', 'en')
+		'Culture' => df_lang_ru_en()
 		// 2017-04-16
 		// «Means encoding, in which cash-desk HTML code will return.
 		// By default: windows-1251.

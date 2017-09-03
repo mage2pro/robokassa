@@ -152,7 +152,7 @@ final class Options {
 		/** @var array(string => int) $w */
 		$w = array_flip(['BankCard', 'Bank', 'EMoney', 'Mobile', 'Other']);
 		return df_ksort($result, function($a, $b) use($w) {return dfa($w, $a, -1) - dfa($w, $b, -1);});
-	}, [$canUseDemo && df_my() ? 'demo' : dfps(__CLASS__)->merchantID($s), df_locale_ru('ru', 'en')]);}
+	}, [$canUseDemo && df_my() ? 'demo' : dfps(__CLASS__)->merchantID($s), df_lang_ru_en()]);}
 
 	/**
 	 * 2017-04-17 Зависит от локали. Для банковской карты: «Банковская карта», «Bank card».
