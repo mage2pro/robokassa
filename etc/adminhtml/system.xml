@@ -224,7 +224,7 @@ because the value can contain variables, so do not know the real length here. --
 					type='select'
 				>
 					<label>Payment Identification Type</label>
-					<source_model>Df\PaypalClone\Source\Identification</source_model>
+					<source_model>Df\Payment\Source\Identification</source_model>
 					<comment><![CDATA[
 <p class='df-note'>«<b>Visible ID</b>» is the recommended value for the most shops,
 because it allows you to locate a payment in the Robokassa Merchant Backend
