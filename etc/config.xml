@@ -15,6 +15,11 @@ https://github.com/mage2pro/robokassa/blob/0.1.2/Charge.php#L20-L39
 [Mage2.PRO] Which variables can I use in a payment's description? https://mage2.pro/t/1834
 -->
 				<description>{order.items}</description>
+				<descriptionMaxLength>
+					<title>«Installation and setup of ROBOKASSA script (module)» → «Description of variables, parameters and values» → «MANDATORY PARAMETERS». See the «InvDesc» parameter.</title>
+					<url>http://docs.robokassa.ru/en#2505</url>
+					<value>100</value>
+				</descriptionMaxLength>
 <!-- 2017-08-14
 Note 1:
 *) Param name: `InvId`
