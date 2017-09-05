@@ -184,7 +184,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 		// http://docs.robokassa.ru/ru#1189
 		// Required.
 		// @todo Проверить, что будет, если передать недопустимые символы.
-		,'InvDesc' => $this->description(100)
+		,'InvDesc' => $this->description()
 		// 2017-04-16
 		// «In order to initiate test operation of payment through your shop,
 		// you must add the parameter IsTest with the value 1 to the script.
