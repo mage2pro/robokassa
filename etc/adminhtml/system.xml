@@ -225,7 +225,7 @@ because the value can contain variables, so do not know the real length here. --
 					<source_model>Df\Payment\Source\Identification</source_model>
 					<comment><![CDATA[
 <p class='df-note'>«<b>Visible ID</b>» is the recommended value for the most shops,
-because it allows you to locate a payment in the Robokassa Merchant Backend
+because it allows you to locate a payment in the Robokassa merchant backend
 knowing only the order's visible identifier.</p>
 <p class='df-note'>Robokassa allows only digits in the payment identifiers,
 so the «Visible ID» option will not work if order identifiers
