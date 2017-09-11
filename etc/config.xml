@@ -16,6 +16,11 @@ https://github.com/mage2pro/robokassa/blob/0.1.2/Charge.php#L20-L39
 -->
 				<description>{order.items}</description>
 				<description_rules>
+					<locations>
+						<merchant>
+							<shown>1</shown>
+						</merchant>
+					</locations>
 					<maxLength>
 						<title>«Installation and setup of ROBOKASSA script (module)» → «Description of variables, parameters and values» → «MANDATORY PARAMETERS». See the «InvDesc» parameter.</title>
 						<url>http://docs.robokassa.ru/en#2505</url>
