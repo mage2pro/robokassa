@@ -1,8 +1,8 @@
 <?php
 namespace Dfe\Robokassa\W;
-use Df\Framework\Controller\Result\Text;
-// 2017-04-16
-final class Handler extends \Df\PaypalClone\W\Handler {
+use Df\Framework\Controller\Response\Text;
+// 2017-09-13
+final class Responder extends \Df\Payment\W\Responder {
 	/**
 	 * 2017-04-16
 	 * «If the checksums are equal, then your script should respond ROBOKASSA,
@@ -18,9 +18,9 @@ final class Handler extends \Df\PaypalClone\W\Handler {
 	 * Например, для номера счёта 5 должен быть возвращён вот такой ответ: OK5.»
 	 * http://docs.robokassa.ru/ru#1253
 	 * @override
-	 * @see \Df\Payment\W\Handler::result()
-	 * @used-by \Df\Payment\W\Handler::handle()
+	 * @see \Df\Payment\W\Responder::success()
+	 * @used-by \Df\Payment\W\Responder::get()
 	 * @return Text
 	 */
-	protected function result() {return Text::i("OK{$this->e()->pid()}");}
+	protected function success() {return Text::i("OK{$this->e()->pid()}");}
 }
