@@ -42,6 +42,7 @@ https://mage2.pro/t/4274
 					<ctype_digit/>
 					<max_int>2147483647</max_int>
 				</identification_rules>
+				<optionsLocation>magento</optionsLocation>
 				<optionsPrompt><![CDATA[Пожалуйста, выберите способ оплаты и нажмите внизу кнопку «<b>Оплатить</b>»]]></optionsPrompt>
 				<payment_action>authorize_capture</payment_action>
 				<requireBillingAddress>1</requireBillingAddress>
