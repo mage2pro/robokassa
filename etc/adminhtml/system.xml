@@ -215,9 +215,22 @@ because the value can contain variables, so do not know the real length here. --
 					<label>Description</label>
 				</field>
 				<field
-					id='identification'
+					id='optionsPrompt'
 					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='13'
+					translate='label'
+					type='textarea'
+				>
+					<label>Options Prompt</label>
+					<comment><![CDATA[A text above the Robokassa payment options on the Magento checkout page.<br/>You can use the HTML tags. Also you set the desciption empty to hide it.]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+					</depends>
+				</field>
+				<field
+					id='identification'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='14'
 					translate='label'
 					type='select'
 				>

@@ -14,7 +14,7 @@ final class Options {
 	 * <Currency Label="BANKOCEAN3R" Alias="BankCard" Name="Bank Card"/>
 	 * А для моего магазина «2016-10-18-2» он описан так:
 	 * <Currency Label="QCardR" Alias="BankCard" Name="Bank Card"/>
-	 * @used-by \Dfe\Robokassa\ConfigProvider::config()
+	 * @used-by \Dfe\Robokassa\ConfigProvider::options()
 	 * @param float $a
 	 * @return array(string => mixed)
 	 */
