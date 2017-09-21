@@ -174,7 +174,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					type='Df\Framework\Form\Element\Webhook'
 				>
 					<label>Result Url</label>
-					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3667' target='_blank'>Set it in your Robokassa account</a>.</li><li class='df-note'>Select «<b>POST</b>» as a value of the «<b>Method of sending data to Result Url</b>» option in your Robokassa account.</li></ul>]]></comment>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3667' target='_blank'>Set it in your Robokassa account</a>.</li><li>Select «<b>POST</b>» as a value of the «<b>Method of sending data to Result Url</b>» option in your Robokassa account.</li></ul>]]></comment>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
@@ -185,7 +185,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					type='Df\Payment\FE\CustomerReturn'
 				>
 					<label>Success Url</label>
-					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3667' target='_blank'>Set it in your Robokassa account</a>.</li><li class='df-note'>Select «<b>GET</b>» as a value of the «<b>Method of sending data to Success Url</b>» option in your Robokassa account.</li></ul>]]></comment>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3667' target='_blank'>Set it in your Robokassa account</a>.</li><li>Select «<b>GET</b>» as a value of the «<b>Method of sending data to Success Url</b>» option in your Robokassa account.</li></ul>]]></comment>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
@@ -196,7 +196,7 @@ Whether Robokassa requires a merchant's website to be served over HTTPS? https:/
 					type='Df\Payment\FE\CustomerReturn'
 				>
 					<label>Fail Url</label>
-					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3667' target='_blank'>Set it in your Robokassa account</a>.</li><li class='df-note'>Select «<b>GET</b>» as a value of the «<b>Method of sending data to Fail Url</b>» option in your Robokassa account.</li></ul>]]></comment>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3667' target='_blank'>Set it in your Robokassa account</a>.</li><li>Select «<b>GET</b>» as a value of the «<b>Method of sending data to Fail Url</b>» option in your Robokassa account.</li></ul>]]></comment>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
@@ -234,8 +234,8 @@ because the value can contain variables, so do not know the real length here. --
 					translate='label'
 					type='select'
 				>
-					<label>The payment options display mode</label>
-					<comment><![CDATA[]]></comment>
+					<label>Payment options display mode</label>
+					<comment><![CDATA[See the screenshots:<ul class='df-note'><li><a href='https://mage2.pro/t/4536' target='_blank'>the «<b>images</b>» mode</a></li><li><a href='https://mage2.pro/t/4535' target='_blank'>the «<b>text</b>» mode</a></li></ul>]]></comment>
 					<depends>
 						<field id='enable'>1</field>
 					</depends>

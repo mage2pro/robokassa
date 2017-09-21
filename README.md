@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=hK3dBmW4tg4&list=PLTq8uOpBQGsFVidNBE9PO3G366IJ0J
 ![](https://mage2.pro/uploads/default/original/2X/e/e4c40ecd83861b67aea62c32206337a83660a085.png)
 
 ### Backend settings
-![](https://mage2.pro/uploads/default/original/2X/4/46a9e6ce028c8713a73491b88127dbb7bc7662c1.png)
+![](https://mage2.pro/uploads/default/original/2X/4/4374829ab3efed81e35ed40307204903f932be9b.png)
 
 ## The available payment options for Russia
 ### e-wallet
