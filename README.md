@@ -6,20 +6,12 @@ Robokassa has **[10% market share (2017)](https://mage2.pro/t/3716)** among the 
 https://www.youtube.com/watch?v=hK3dBmW4tg4&list=PLTq8uOpBQGsFVidNBE9PO3G366IJ0JBTv
 
 ## Screenshots
-### Frontend checkout screen
-![](https://mage2.pro/uploads/default/original/2X/b/b9ac8abfd4771d6d9860a70e05fba3d27bc1eb10.png)
-
-### Backend payment information block
-![](https://mage2.pro/uploads/default/original/2X/a/a420a2682c5ee92969d735daeaf7a1588e4739e0.png)
-
-### Frontend payment information block
-![](https://mage2.pro/uploads/default/original/2X/1/11d3cd1e6a86394c27637343aa55e65ff44be9f7.png)
-
-### Backend order list
-![](https://mage2.pro/uploads/default/original/2X/e/e4c40ecd83861b67aea62c32206337a83660a085.png)
-
-### Backend settings
-![](https://mage2.pro/uploads/default/original/2X/4/4374829ab3efed81e35ed40307204903f932be9b.png)
+- The frontend checkout screen:
+    - [in the «**images**» mode](https://mage2.pro/t/topic/4536)
+    - [in the «**text**» mode](https://mage2.pro/t/topic/4535)
+- [The payment information blocks](https://mage2.pro/t/topic/4544)
+- [The backend order list](https://mage2.pro/t/topic/4546)
+- [The backend settings](https://mage2.pro/t/topic/4538)
 
 ## The available payment options for Russia
 ### e-wallet
