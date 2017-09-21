@@ -6,138 +6,144 @@ form.dfe_robokassa {
 		@media (min-width: 570px) {.columns(2);}
 		@media (min-width: 1400px) {.columns(3);}
 	}
-	.df-choice label {display: inline-block; color: transparent;}
-	// 2017-04-17 Альфа-Банк
-	.df-option-AlfaBank label {background: url('./i/alfabank.png'); width: 169px; height: 50px;}
-	// 2017-04-18 Apple Pay
-	.df-option-ApplePay label {
-		background: url('./i/apple-pay.png') center no-repeat;
-		width: 110px; height: 44px; padding: 3px 0
+	// 2017-09-21
+	// This style is set when the «The payment options display mode» option has the «images» value.
+	// @see Df_Payment/withOptions::containerCss():
+	//		'withOptions-displayMode-' + this.config('optionsDisplayMode')
+	.withOptions-displayMode-images & {
+		.df-choice label {display: inline-block; color: transparent;}
+		// 2017-04-17 Альфа-Банк
+		.df-option-AlfaBank label {background: url('./i/alfabank.png'); width: 169px; height: 50px;}
+		// 2017-04-18 Apple Pay
+		.df-option-ApplePay label {
+			background: url('./i/apple-pay.png') center no-repeat;
+			width: 110px; height: 44px; padding: 3px 0
+		}
+		// 2017-04-17 Банк АВБ (Автовазбанк)
+		.df-option-BankAVB label {background: url('./i/bank-avb.png'); width: 129px; height: 50px;}
+		// 2017-04-17 Бинбанк
+		.df-option-BankBin label {
+			background: url('./i/binbank.png') center no-repeat;
+			width: 200px; height: 36px; padding: 7px 0;
+		}
+		// 2017-04-17 Банковская карта
+		.df-option-BankCard label {
+			background: url('./i/bank-card.png') center no-repeat;
+			width: 200px; height: 39px; padding: 5px 0 6px 0;
+		}
+		// 2017-04-17 Банк Инноваций и Развития
+		.df-option-BankFBID label {background: url('./i/bank-innovatsiy-i-razvitiya.png') center no-repeat;
+			width: 175px; height: 44px; padding: 3px 0;
+		}
+		// 2017-04-17 Банк Интеза
+		.df-option-BankInteza label {
+			background: url('./i/banca-intesa.png') center no-repeat;
+			width: 200px; height: 30px; padding: 10px 0;
+		}
+		// 2017-04-17 Московский Индустриальный Банк
+		.df-option-BankMIN label {background: url('./i/minbank.png') center no-repeat;
+			width: 180px; height: 44px; padding: 3px 0;
+		}
+		// 2017-04-17 Межтопэнергобанк
+		.df-option-BankMTEB label {background: url('./i/mezhtopehnergobank.png'); width: 100px; height: 50px;}
+		// 2017-04-17 Банк Русский Стандарт
+		.df-option-BankRSB label {
+			background: url('./i/rsb.png') center no-repeat;
+			width: 200px; height: 37px; padding: 6px 0 7px 0;
+		}
+		// 2017-04-17 Сбербанк
+		.df-option-BankSberBank label {background: url('./i/sberbank.png'); width: 200px; height: 49px;}
+		// 2017-04-17 Совкомбанк
+		.df-option-BankSovCom label {background: url('./i/sovkombank.png') center no-repeat;
+			width: 200px; height: 28px; padding: 11px 0;
+		}
+		// 2017-04-18 Тинькофф Банк
+		.df-option-BankTinkoff label {background: url('./i/tinkoff.png'); width: 159px; height: 50px;}
+		// 2017-04-17 Банк ТРАСТ
+		.df-option-BankTrust label {background: url('./i/trust.png') center no-repeat;
+			width: 191px; height: 42px; padding: 4px 0;
+		}
+		// 2017-04-18 Кошелек Элекснет
+		.df-option-ElecsnetWallet label {background: url('./i/eleksnet-wallet.png'); width: 130px; height: 50px;}
+		// 2017-04-17 HandyBank
+		.df-option-HandyBank label {background: url('./i/handybank.png') center no-repeat;
+			width: 200px; height: 31px; padding: 10px 0 9px 0;
+		}
+		// 2017-04-17 Банк Образование
+		.df-option-HandyBankBO label {
+			background: url('./i/bank-obrazovanie.png') center no-repeat;
+			width: 200px; height: 33px; padding: 9px 0 8px 0;
+		}
+		// 2017-04-17 Банк развития и модернизации промышленности (Банк «Фьючер»)
+		.df-option-HandyBankFU label {
+			background: url('./i/bank-razvitiya-i-modernizacii-promyshlennosti.png') center no-repeat;
+			width: 200px; height: 42px; padding: 4px 0;
+		}
+		// 2017-04-17 КранБанк
+		.df-option-HandyBankKB label {
+			background: url('./i/kran-bank.png') center no-repeat;
+			width: 200px; height: 32px; padding: 8px;
+		}
+		// 2017-04-17 Костромаселькомбанк
+		.df-option-HandyBankKSB label {background: url('./i/kostromaselkombank.png'); width: 150px; height: 50px;}
+		// 2017-04-17 Независимый строительный банк
+		.df-option-HandyBankNSB label {
+			background: url('./i/nezavisimyj-stroitelnyj-bank.png') center no-repeat;
+			width: 159px; height: 42px; padding: 4px 0;
+		}
+		// 2017-04-18 Билайн
+		.df-option-PhoneBeeline label {background: url('./i/beeline.png'); width: 161px; height: 50px;}
+		// 2017-04-18 МегаФон
+		.df-option-PhoneMegafon label {
+			background: url('./i/megafon.png') center no-repeat;
+			width: 200px; height: 36px; padding: 7px;
+		}
+		// 2017-04-18 МТС
+		.df-option-PhoneMTS label {background: url('./i/mts.png'); width: 139px; height: 50px;}
+		// 2017-04-18 Таттелеком
+		.df-option-PhoneTatTelecom label {
+			background: url('./i/tattelecom.png') center no-repeat;
+			width: 200px; height: 17px; padding: 17px 0 16px 0;
+		}
+		// 2017-04-18 Tele2
+		.df-option-PhoneTele2 label {
+			background: url('./i/tele2.png') center no-repeat;
+			width: 117px; height: 44px; padding: 3px 0
+		}
+		// 2017-04-17 Кредит Урал Банк
+		.df-option-KUBank label {
+			background: url('./i/kredit-ural-bank.png') center no-repeat;
+			width: 200px; height: 44px; padding: 3px 0;
+		}
+		// 2017-04-18 QIWI Кошелёк
+		.df-option-QiwiWallet label {background: url('./i/qiwi.png'); width: 142px; height: 50px;}
+		// 2017-04-18 Samsung Pay
+		.df-option-SamsungPay label {
+			background: url('./i/samsung-pay.png') center no-repeat;
+			width: 97px; height: 44px; padding: 3px 0
+		}
+		// 2017-04-17 Евросеть
+		.df-option-StoreEuroset label {background: url('./i/euroset.png') center no-repeat;
+			width: 200px; height: 27px; padding: 12px 0 11px 0;
+		}
+		// 2017-04-17 Связной
+		.df-option-StoreSvyaznoy label {background: url('./i/svyaznoy.png') center no-repeat;
+			width: 200px; height: 41px; padding: 5px 0 4px 0;
+		}
+		// 2017-08-14 Терминал Элекснет
+		.df-option-TerminalsElecsnet label {background: url('./i/eleksnet.png'); width: 167px; height: 50px;}
+		// 2017-04-17 ВТБ-24
+		.df-option-VTB24 label {background: url('./i/vtb24.png') center no-repeat;
+			width: 161px; height: 44px; padding: 3px 0;
+		}
+		// 2017-04-17 Единая Касса (Wallet One)
+		.df-option-W1 label {background: url('./i/w1.png'); width: 59px; height: 50px;}
+		// 2017-04-18 WMR
+		.df-option-WMR label {
+			background: url('./i/webmoney.png') center no-repeat;
+			width: 176px; height: 44px; padding: 3px 0
+		}
+		// 2017-04-18 Яндекс.Деньги
+		.df-option-YandexMoney label {background: url('./i/yandex-money.png'); width: 131px; height: 50px;}
 	}
-	// 2017-04-17 Банк АВБ (Автовазбанк)
-	.df-option-BankAVB label {background: url('./i/bank-avb.png'); width: 129px; height: 50px;}
-	// 2017-04-17 Бинбанк
-	.df-option-BankBin label {
-		background: url('./i/binbank.png') center no-repeat;
-		width: 200px; height: 36px; padding: 7px 0;
-	}
-	// 2017-04-17 Банковская карта
-	.df-option-BankCard label {
-		background: url('./i/bank-card.png') center no-repeat;
-		width: 200px; height: 39px; padding: 5px 0 6px 0;
-	}
-	// 2017-04-17 Банк Инноваций и Развития
-	.df-option-BankFBID label {background: url('./i/bank-innovatsiy-i-razvitiya.png') center no-repeat;
-		width: 175px; height: 44px; padding: 3px 0;
-	}
-	// 2017-04-17 Банк Интеза
-	.df-option-BankInteza label {
-		background: url('./i/banca-intesa.png') center no-repeat;
-		width: 200px; height: 30px; padding: 10px 0;
-	}
-	// 2017-04-17 Московский Индустриальный Банк
-	.df-option-BankMIN label {background: url('./i/minbank.png') center no-repeat;
-		width: 180px; height: 44px; padding: 3px 0;
-	}
-	// 2017-04-17 Межтопэнергобанк
-	.df-option-BankMTEB label {background: url('./i/mezhtopehnergobank.png'); width: 100px; height: 50px;}
-	// 2017-04-17 Банк Русский Стандарт
-	.df-option-BankRSB label {
-		background: url('./i/rsb.png') center no-repeat;
-		width: 200px; height: 37px; padding: 6px 0 7px 0;
-	}
-	// 2017-04-17 Сбербанк
-	.df-option-BankSberBank label {background: url('./i/sberbank.png'); width: 200px; height: 49px;}
-	// 2017-04-17 Совкомбанк
-	.df-option-BankSovCom label {background: url('./i/sovkombank.png') center no-repeat;
-		width: 200px; height: 28px; padding: 11px 0;
-	}
-	// 2017-04-18 Тинькофф Банк
-	.df-option-BankTinkoff label {background: url('./i/tinkoff.png'); width: 159px; height: 50px;}
-	// 2017-04-17 Банк ТРАСТ
-	.df-option-BankTrust label {background: url('./i/trust.png') center no-repeat;
-		width: 191px; height: 42px; padding: 4px 0;
-	}
-	// 2017-04-18 Кошелек Элекснет
-	.df-option-ElecsnetWallet label {background: url('./i/eleksnet-wallet.png'); width: 130px; height: 50px;}
-	// 2017-04-17 HandyBank
-	.df-option-HandyBank label {background: url('./i/handybank.png') center no-repeat;
-		width: 200px; height: 31px; padding: 10px 0 9px 0;
-	}
-	// 2017-04-17 Банк Образование
-	.df-option-HandyBankBO label {
-		background: url('./i/bank-obrazovanie.png') center no-repeat;
-		width: 200px; height: 33px; padding: 9px 0 8px 0;
-	}
-	// 2017-04-17 Банк развития и модернизации промышленности (Банк «Фьючер»)
-	.df-option-HandyBankFU label {
-		background: url('./i/bank-razvitiya-i-modernizacii-promyshlennosti.png') center no-repeat;
-		width: 200px; height: 42px; padding: 4px 0;
-	}
-	// 2017-04-17 КранБанк
-	.df-option-HandyBankKB label {
-		background: url('./i/kran-bank.png') center no-repeat;
-		width: 200px; height: 32px; padding: 8px;
-	}
-	// 2017-04-17 Костромаселькомбанк
-	.df-option-HandyBankKSB label {background: url('./i/kostromaselkombank.png'); width: 150px; height: 50px;}
-	// 2017-04-17 Независимый строительный банк
-	.df-option-HandyBankNSB label {
-		background: url('./i/nezavisimyj-stroitelnyj-bank.png') center no-repeat;
-		width: 159px; height: 42px; padding: 4px 0;
-	}
-	// 2017-04-18 Билайн
-	.df-option-PhoneBeeline label {background: url('./i/beeline.png'); width: 161px; height: 50px;}
-	// 2017-04-18 МегаФон
-	.df-option-PhoneMegafon label {
-		background: url('./i/megafon.png') center no-repeat;
-		width: 200px; height: 36px; padding: 7px;
-	}
-	// 2017-04-18 МТС
-	.df-option-PhoneMTS label {background: url('./i/mts.png'); width: 139px; height: 50px;}
-	// 2017-04-18 Таттелеком
-	.df-option-PhoneTatTelecom label {
-		background: url('./i/tattelecom.png') center no-repeat;
-		width: 200px; height: 17px; padding: 17px 0 16px 0;
-	}
-	// 2017-04-18 Tele2
-	.df-option-PhoneTele2 label {
-		background: url('./i/tele2.png') center no-repeat;
-		width: 117px; height: 44px; padding: 3px 0
-	}
-	// 2017-04-17 Кредит Урал Банк
-	.df-option-KUBank label {
-		background: url('./i/kredit-ural-bank.png') center no-repeat;
-		width: 200px; height: 44px; padding: 3px 0;
-	}
-	// 2017-04-18 QIWI Кошелёк
-	.df-option-QiwiWallet label {background: url('./i/qiwi.png'); width: 142px; height: 50px;}
-	// 2017-04-18 Samsung Pay
-	.df-option-SamsungPay label {
-		background: url('./i/samsung-pay.png') center no-repeat;
-		width: 97px; height: 44px; padding: 3px 0
-	}
-	// 2017-04-17 Евросеть
-	.df-option-StoreEuroset label {background: url('./i/euroset.png') center no-repeat;
-		width: 200px; height: 27px; padding: 12px 0 11px 0;
-	}
-	// 2017-04-17 Связной
-	.df-option-StoreSvyaznoy label {background: url('./i/svyaznoy.png') center no-repeat;
-		width: 200px; height: 41px; padding: 5px 0 4px 0;
-	}
-	// 2017-08-14 Терминал Элекснет
-	.df-option-TerminalsElecsnet label {background: url('./i/eleksnet.png'); width: 167px; height: 50px;}
-	// 2017-04-17 ВТБ-24
-	.df-option-VTB24 label {background: url('./i/vtb24.png') center no-repeat;
-		width: 161px; height: 44px; padding: 3px 0;
-	}
-	// 2017-04-17 Единая Касса (Wallet One)
-	.df-option-W1 label {background: url('./i/w1.png'); width: 59px; height: 50px;}
-	// 2017-04-18 WMR
-	.df-option-WMR label {
-		background: url('./i/webmoney.png') center no-repeat;
-		width: 176px; height: 44px; padding: 3px 0
-	}
-	// 2017-04-18 Яндекс.Деньги
-	.df-option-YandexMoney label {background: url('./i/yandex-money.png'); width: 131px; height: 50px;}
 }
