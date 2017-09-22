@@ -5,7 +5,7 @@ Robokassa has **[10% market share (2017)](https://mage2.pro/t/3716)** among the 
 ## Demo video
 https://www.youtube.com/watch?v=hK3dBmW4tg4&list=PLTq8uOpBQGsFVidNBE9PO3G366IJ0JBTv
 
-## Screenshots
+## [Screenshots](https://mage2.pro/tags/robokassa-screenshots)
 - The frontend checkout screen:
     - [in the «**images**» mode](https://mage2.pro/t/topic/4536)
     - [in the «**text**» mode](https://mage2.pro/t/topic/4535)
