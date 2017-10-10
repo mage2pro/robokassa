@@ -5,4 +5,4 @@ namespace Dfe\Robokassa\T;
  * @see \Dfe\Robokassa\T\Basic
  * @method \Dfe\Robokassa\Settings s()
  */
-abstract class TestCase extends \Df\Payment\TestCase {}
+abstract class CaseT extends \Df\Payment\TestCase {}
