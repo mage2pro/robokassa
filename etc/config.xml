@@ -45,7 +45,6 @@ https://mage2.pro/t/4274
 				<optionsDisplayMode>images</optionsDisplayMode>
 				<optionsLocation>magento</optionsLocation>
 				<optionsPrompt><![CDATA[Выберите способ оплаты и нажмите внизу кнопку «<b>Оплатить</b>»:]]></optionsPrompt>
-				<payment_action>authorize_capture</payment_action>
 				<requireBillingAddress>0</requireBillingAddress>
 				<title>Robokassa</title>
 				<title_backend>Robokassa</title_backend>
