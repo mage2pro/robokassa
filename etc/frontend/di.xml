@@ -10,4 +10,5 @@
 			</argument>
 		</arguments>
 	</type>
+	<virtualType name='Dfe\Robokassa\Controller\Index\Index' type='Df\Payment\W\Action'/>
 </config>
