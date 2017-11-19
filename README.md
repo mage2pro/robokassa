@@ -1,5 +1,4 @@
-This extension integrates a Magento 2 based webstore with the **[Robokassa](https://www.robokassa.ru/en)** payment service (Russia).
-
+This extension integrates a Magento 2 based webstore with the **[Robokassa](https://www.robokassa.ru/en)** payment service (Russia).  
 Robokassa holds **[10% market share (2017)](https://mage2.pro/t/3716)** among the payment service providers in Russia by the number of websites using it.
 
 ## Demo video
