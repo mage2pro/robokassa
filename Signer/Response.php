@@ -15,7 +15,5 @@ final class Response extends \Dfe\Robokassa\Signer {
 	 * @used-by \Dfe\Robokassa\Signer::sign()
 	 * @return string[]
 	 */
-	protected function values() {return [
-		dfa_select_ordered($this->v(), ['OutSum', 'InvId']), $this->s()->password2()
-	];}
+	protected function values() {return [dfa($this->v(), ['OutSum', 'InvId']), $this->s()->password2()];}
 }
