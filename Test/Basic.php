@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Robokassa\T;
+namespace Dfe\Robokassa\Test;
 use Dfe\Robokassa\Api\Options;
 use Dfe\Robokassa\Settings as S;
 // 2017-04-12
