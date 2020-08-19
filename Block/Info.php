@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Robokassa\Block;
-// 2017-04-10
+# 2017-04-10
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class Info extends \Df\Payment\Block\Info {
 	/**

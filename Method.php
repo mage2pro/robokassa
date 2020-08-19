@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Robokassa;
-// 2017-04-10
+# 2017-04-10
 final class Method extends \Df\PaypalClone\Method {
 	/**
 	 * 2017-04-16

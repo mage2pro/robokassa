@@ -2,7 +2,7 @@
 namespace Dfe\Robokassa\Test;
 use Dfe\Robokassa\Api\Options;
 use Dfe\Robokassa\Settings as S;
-// 2017-04-12
+# 2017-04-12
 final class Basic extends CaseT {
 	/** 2017-04-12 */
 	function t01() {print_r(df_dump([$this->s()->password1(), $this->s()->password2()]));}

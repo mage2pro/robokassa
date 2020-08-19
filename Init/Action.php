@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Robokassa\Init;
-// 2017-04-10
+# 2017-04-10
 /** @method \Dfe\Robokassa\Method m() */
 final class Action extends \Df\PaypalClone\Init\Action {
 	/**

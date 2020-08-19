@@ -3,7 +3,7 @@ namespace Dfe\Robokassa\Api;
 use Df\Xml\X;
 use Magento\Framework\App\ScopeInterface as IScope;
 use Magento\Store\Model\Store;
-// 2017-04-12
+# 2017-04-12
 final class Options {
 	/**
 	 * 2017-04-15
@@ -85,9 +85,9 @@ final class Options {
 		/** @var array(string => array(string => string)) $result */
 		$result = [];
 		foreach (df_xml_parse(df_cache_get_simple(null, 'df_http_get', [], $url, [
-			// 2017-04-15
-			// Using the «demo» account allows to receive the list of all Robokassa payment options.
-			// I use it only for testing and demonstration.
+			# 2017-04-15
+			# Using the «demo» account allows to receive the list of all Robokassa payment options.
+			# I use it only for testing and demonstration.
 			'Language' => $locale, 'MerchantLogin' => $merchantId
 		]))->{'Groups'}->{'Group'} as $xGroup) {
 			/** @var X $xGroup */
@@ -116,15 +116,15 @@ final class Options {
 				$result[$gCode] = [self::$G_TITLE => df_leaf_s($xA['Description']), self::$ITEMS => $items];
 			}
 		}
-		// 2017-04-18
-		// Опция «QIWI Кошелёк» размещена сразу в 2 разделах: «Электронным кошельком» и «В терминале»,
-		// причём в разделе «В терминале» она является единственной опцией,
-		// а опция «Элекснет», которую разумно было бы поместить в раздел «В терминале»,
-		// размещена в разделе «Электронным кошельком».
-		// Решил сделать так:
-		// 1) Исключить опцию «QIWI Кошелёк» из раздела «В терминале».
-		// 2) Объединить разделы «Электронным кошельком» и «В терминале» в единый раздел
-		// «Электронным кошельком / В терминале».
+		# 2017-04-18
+		# Опция «QIWI Кошелёк» размещена сразу в 2 разделах: «Электронным кошельком» и «В терминале»,
+		# причём в разделе «В терминале» она является единственной опцией,
+		# а опция «Элекснет», которую разумно было бы поместить в раздел «В терминале»,
+		# размещена в разделе «Электронным кошельком».
+		# Решил сделать так:
+		# 1) Исключить опцию «QIWI Кошелёк» из раздела «В терминале».
+		# 2) Объединить разделы «Электронным кошельком» и «В терминале» в единый раздел
+		# «Электронным кошельком / В терминале».
 		/** @var array(string => string|array)|null $gTerminals */
 		$gTerminals = dfa($result, 'Terminals');
 		/** @var array(string => string|array)|null $gWallet */
@@ -132,7 +132,7 @@ final class Options {
 		if ($gTerminals && $gWallet) {
 			$result['EMoney'] = [
 				self::$G_TITLE => "{$gWallet[self::$G_TITLE]} / {$gTerminals[self::$G_TITLE]}"
-				// 2017-04-18 Таким алгоритмом мы удаляем дубликаты.
+				# 2017-04-18 Таким алгоритмом мы удаляем дубликаты.
 				,self::$ITEMS => array_values(df_map_kr(function($k, $v) {return [
 					$v[self::$ID_UNIVERSAL],$v
 				];}, array_merge($gWallet[self::$ITEMS], $gTerminals[self::$ITEMS])))
@@ -142,13 +142,13 @@ final class Options {
 		/** @var array(string => int) $w */
   		/** @var array(string => string|array)|null $gMobile */
 		if ($gMobile = dfa($result, 'Mobile')) {
-			// 2017-04-18 Порядок следования мобильных операторов.
+			# 2017-04-18 Порядок следования мобильных операторов.
 			$w = array_flip(['PhoneMTS', 'PhoneBeeline', 'PhoneMegafon', 'PhoneTele2', 'PhoneTatTelecom']);
 			$result['Mobile'] = [self::$ITEMS => df_sort($gMobile[self::$ITEMS], function($a, $b) use($w) {
 				return dfa($w, $a[self::$ID_UNIVERSAL], -1) - dfa($w, $b[self::$ID_UNIVERSAL], -1)
 			;})] + $gMobile;
 		}
-		// 2017-04-18 Порядок следования разделов.
+		# 2017-04-18 Порядок следования разделов.
 		/** @var array(string => int) $w */
 		$w = array_flip(['BankCard', 'Bank', 'EMoney', 'Mobile', 'Other']);
 		return df_ksort($result, function($a, $b) use($w) {return dfa($w, $a, -1) - dfa($w, $b, -1);});

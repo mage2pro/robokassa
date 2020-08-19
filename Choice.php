@@ -2,7 +2,7 @@
 namespace Dfe\Robokassa;
 use Dfe\Robokassa\W\Event;
 use Magento\Framework\Phrase;
-// 2017-04-17
+# 2017-04-17
 /** @method Event|string|null responseF(...$k) */
 final class Choice extends \Df\Payment\Choice {
 	/**

@@ -2,7 +2,7 @@
 namespace Dfe\Robokassa;
 use Df\Payment\ConfigProvider\IOptions;
 use Dfe\Robokassa\Api\Options;
-// 2017-04-10
+# 2017-04-10
 final class ConfigProvider extends \Df\Payment\ConfigProvider implements IOptions {
 	/**
 	 * 2017-09-18
