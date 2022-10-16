@@ -80,29 +80,20 @@ final class Options {
 	 * @return array(string => array(string => string))
 	 */
 	private static function p($s = null, $canUseDemo = false) {return dfcf(function($merchantId, $locale) {
-		/** @var mixed $result */ /** @var string $url */
-		$url = 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies';
-		/** @var array(string => array(string => string)) $result */
-		$result = [];
+		$url = 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies'; /** @var string $url */
+		$r = []; /** @var array(string => array(string => string)) $r */
 		foreach (df_xml_parse(df_cache_get_simple(null, 'df_http_get', [], $url, [
 			# 2017-04-15
 			# Using the «demo» account allows to receive the list of all Robokassa payment options.
 			# I use it only for testing and demonstration.
 			'Language' => $locale, 'MerchantLogin' => $merchantId
-		]))->{'Groups'}->{'Group'} as $xGroup) {
-			/** @var X $xGroup */
-			/** @var X[] $xA */
-			$xA = $xGroup->attributes();
-			/** @var array(array(string => string)) $items */
-			$items = [];
-			/** @var string $gCode */
-			$gCode = df_leaf_s($xA['Code']);
-			foreach ($xGroup->{'Items'}->{'Currency'} as $xI) {
-				/** @var X $xI */
-				/** @var X[] $xIA */
-				$xIA = $xI->attributes();
-				/** @var string $alias */
-				if (!self::excluded($gCode, $alias = df_leaf_s($xIA['Alias']))) {
+		]))->{'Groups'}->{'Group'} as $xGroup) { /** @var X $xGroup */
+			$xA = $xGroup->attributes(); /** @var X[] $xA */
+			$items = []; /** @var array(array(string => string)) $items */
+			$gCode = df_leaf_s($xA['Code']); /** @var string $gCode */
+			foreach ($xGroup->{'Items'}->{'Currency'} as $xI) {/** @var X $xI */
+				$xIA = $xI->attributes(); /** @var X[] $xIA */
+				if (!self::excluded($gCode, $alias = df_leaf_s($xIA['Alias']))) {/** @var string $alias */
 					$items[]= [
 						self::$ID_UNIVERSAL => $alias
 						,self::$ID_SPECIFIC => df_leaf_s($xIA['Label'])
@@ -113,7 +104,7 @@ final class Options {
 				}
 			}
 			if ($items) {
-				$result[$gCode] = [self::$G_TITLE => df_leaf_s($xA['Description']), self::$ITEMS => $items];
+				$r[$gCode] = [self::$G_TITLE => df_leaf_s($xA['Description']), self::$ITEMS => $items];
 			}
 		}
 		# 2017-04-18
@@ -126,32 +117,30 @@ final class Options {
 		# 2) Объединить разделы «Электронным кошельком» и «В терминале» в единый раздел
 		# «Электронным кошельком / В терминале».
 		/** @var array(string => string|array)|null $gTerminals */
-		$gTerminals = dfa($result, 'Terminals');
+		$gTerminals = dfa($r, 'Terminals');
 		/** @var array(string => string|array)|null $gWallet */
-		$gWallet = dfa($result, 'EMoney');
+		$gWallet = dfa($r, 'EMoney');
 		if ($gTerminals && $gWallet) {
-			$result['EMoney'] = [
+			$r['EMoney'] = [
 				self::$G_TITLE => "{$gWallet[self::$G_TITLE]} / {$gTerminals[self::$G_TITLE]}"
 				# 2017-04-18 Таким алгоритмом мы удаляем дубликаты.
 				,self::$ITEMS => array_values(df_map_kr(function($k, $v) {return [
 					$v[self::$ID_UNIVERSAL],$v
 				];}, array_merge($gWallet[self::$ITEMS], $gTerminals[self::$ITEMS])))
 			];
-			unset($result['Terminals']);
+			unset($r['Terminals']);
 		}
 		/** @var array(string => int) $w */
-  		/** @var array(string => string|array)|null $gMobile */
-		if ($gMobile = dfa($result, 'Mobile')) {
+		if ($gMobile = dfa($r, 'Mobile')) {/** @var array(string => string|array)|null $gMobile */
 			# 2017-04-18 Порядок следования мобильных операторов.
 			$w = array_flip(['PhoneMTS', 'PhoneBeeline', 'PhoneMegafon', 'PhoneTele2', 'PhoneTatTelecom']);
-			$result['Mobile'] = [self::$ITEMS => df_sort($gMobile[self::$ITEMS], function($a, $b) use($w) {
+			$r['Mobile'] = [self::$ITEMS => df_sort($gMobile[self::$ITEMS], function($a, $b) use($w) {
 				return dfa($w, $a[self::$ID_UNIVERSAL], -1) - dfa($w, $b[self::$ID_UNIVERSAL], -1)
 			;})] + $gMobile;
 		}
 		# 2017-04-18 Порядок следования разделов.
-		/** @var array(string => int) $w */
-		$w = array_flip(['BankCard', 'Bank', 'EMoney', 'Mobile', 'Other']);
-		return df_ksort($result, function($a, $b) use($w) {return dfa($w, $a, -1) - dfa($w, $b, -1);});
+		$w = array_flip(['BankCard', 'Bank', 'EMoney', 'Mobile', 'Other']); /** @var array(string => int) $w */
+		return df_ksort($r, function($a, $b) use($w) {return dfa($w, $a, -1) - dfa($w, $b, -1);});
 	}, [$canUseDemo && df_my() ? 'demo' : dfps(__CLASS__)->merchantID($s), df_lang_ru_en()]);}
 
 	/**
