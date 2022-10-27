@@ -9,7 +9,7 @@ namespace Dfe\Robokassa;
 abstract class Signer extends \Df\PaypalClone\Signer {
 	/**
 	 * 2017-04-10
-	 * @used-by sign()
+	 * @used-by self::sign()
 	 * @see \Dfe\Robokassa\Signer\Request::values()
 	 * @see \Dfe\Robokassa\Signer\Response::values()
 	 * @return string[]

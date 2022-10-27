@@ -56,7 +56,7 @@ final class Options {
 	 * Замечание №3
 	 * У ВестИнтерБанка отозвана лицензия ещё 2016-10-27,
 	 * но Робокасса почему-то всё равно эту опцию предлагает.
-	 * @used-by p()
+	 * @used-by self::p()
 	 * @param string $g
 	 * @param string $i
 	 * @return bool
@@ -73,8 +73,8 @@ final class Options {
 	 * 2017-04-17
 	 * https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies?MerchantLogin=2016-10-18-2&Language=ru
 	 * https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies?MerchantLogin=demo&Language=ru
-	 * @used-by forCheckout()
-	 * @used-by map()
+	 * @used-by self::forCheckout()
+	 * @used-by self::map()
 	 * @param null|string|int|IScope|Store $s [optional]
 	 * @param bool $canUseDemo [optional]
 	 * @return array(string => array(string => string))
@@ -145,58 +145,57 @@ final class Options {
 
 	/**
 	 * 2017-04-17 Зависит от локали. Для банковской карты: «Банковская карта», «Bank card».
-	 * @used-by forCheckout()
-	 * @used-by p()
+	 * @used-by self::forCheckout()
+	 * @used-by self::p()
 	 * @var string
 	 */
 	private static $G_TITLE = 'title';
 
 	/**
-	 * 2017-04-17
-	 * Зависит от магазина. Например, для банковской карты может быть: «QCardR», «BANKOCEAN3R».
-	 * @used-by map()
-	 * @used-by p()
+	 * 2017-04-17 Зависит от магазина. Например, для банковской карты может быть: «QCardR», «BANKOCEAN3R».
+	 * @used-by self::map()
+	 * @used-by self::p()
 	 * @var string
 	 */
 	private static $ID_SPECIFIC = 'id_specific';
 
 	/**
 	 * 2017-04-17 Не зависит от магазина. Для банковской карты: «BankCard».
-	 * @used-by forCheckout()
-	 * @used-by p()
+	 * @used-by self::forCheckout()
+	 * @used-by self::p()
 	 * @var string
 	 */
 	private static $ID_UNIVERSAL = 'id_universal';
 
 	/**
 	 * 2017-04-17
-	 * @used-by forCheckout()
-	 * @used-by map()
-	 * @used-by p()
+	 * @used-by self::forCheckout()
+	 * @used-by self::map()
+	 * @used-by self::p()
 	 * @var string
 	 */
 	private static $ITEMS = 'items';
 
 	/**
 	 * 2017-04-17
-	 * @used-by forCheckout()
-	 * @used-by p()
+	 * @used-by self::forCheckout()
+	 * @used-by self::p()
 	 * @var string
 	 */
 	private static $MAX = 'max';
 	/**
 	 * 2017-04-17
-	 * @used-by forCheckout()
-	 * @used-by p()
+	 * @used-by self::forCheckout()
+	 * @used-by self::p()
 	 * @var string
 	 */
 	private static $MIN = 'min';
 
 	/**
 	 * 2017-04-17
-	 * @used-by forCheckout()
-	 * @used-by map()
-	 * @used-by p()
+	 * @used-by self::forCheckout()
+	 * @used-by self::map()
+	 * @used-by self::p()
 	 * @var string
 	 */
 	private static $LABEL = 'label';

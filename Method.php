@@ -57,8 +57,8 @@ final class Method extends \Df\PaypalClone\Method {
 
 	/**
 	 * 2017-04-16 https://github.com/mage2pro/core/blob/2.12.17/Payment/view/frontend/web/withOptions.js#L56-L72
-	 * @used-by iiaKeys()
-	 * @used-by option()
+	 * @used-by self::iiaKeys()
+	 * @used-by self::option()
 	 */
 	private static $II_OPTION = 'option';
 }
