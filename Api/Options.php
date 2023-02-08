@@ -15,10 +15,9 @@ final class Options {
 	 * А для моего магазина «2016-10-18-2» он описан так:
 	 * <Currency Label="QCardR" Alias="BankCard" Name="Bank Card"/>
 	 * @used-by \Dfe\Robokassa\ConfigProvider::options()
-	 * @param float $a
 	 * @return array(string => mixed)
 	 */
-	static function forCheckout($a) {return array_values(array_filter(df_map_k(
+	static function forCheckout(float $a) {return array_values(array_filter(df_map_k(
 		function($k, array $g) use($a) {return
 			!($items = array_values(array_filter($g[self::$ITEMS], function(array $i) use($a) {return
 				(!($max = dfa($i, self::$MAX)) || $a <= $max)
