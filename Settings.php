@@ -22,7 +22,6 @@ final class Settings extends \Df\Payment\Settings {
 	 * http://docs.robokassa.ru/en#5197
 	 * [Robokassa] Where are my API credentials and settings located? https://mage2.pro/t/3667
 	 * @used-by \Dfe\Robokassa\Signer\Response::values()
-	 * @return string
 	 */
-	function password2() {return $this->testableP();}
+	function password2():string {return $this->testableP();}
 }
