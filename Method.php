@@ -17,9 +17,8 @@ final class Method extends \Df\PaypalClone\Method {
 	/**
 	 * 2017-04-16
 	 * @used-by \Dfe\Robokassa\Charge::pCharge()
-	 * @return string
 	 */
-	function option() {return df_result_sne($this->iia(self::$II_OPTION));}
+	function option():string {return df_result_sne($this->iia(self::$II_OPTION));}
 
 	/**
 	 * 2017-04-16
