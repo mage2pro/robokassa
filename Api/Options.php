@@ -2,6 +2,7 @@
 namespace Dfe\Robokassa\Api;
 use Df\Xml\X;
 use Magento\Framework\App\ScopeInterface as IScope;
+use Magento\Store\Api\Data\StoreInterface as IStore;
 use Magento\Store\Model\Store;
 # 2017-04-12
 final class Options {
@@ -37,7 +38,7 @@ final class Options {
 	 * @param null|string|int|IScope|Store $s [optional]
 	 * @return array(string => string)
 	 */
-	static function map($s = null):array {return dfcf(function($s) {return array_column(array_merge(
+	static function map($s = null):array {return dfcf(function(IStore $s) {return array_column(array_merge(
 		...array_column(self::p($s), self::$ITEMS)
 	), self::$LABEL, self::$ID_SPECIFIC);}, [df_store($s)]);}
 
