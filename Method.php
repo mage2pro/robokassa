@@ -49,7 +49,7 @@ final class Method extends \Df\PaypalClone\Method {
 	 * @used-by \Df\Payment\Method::assignData()
 	 * @return string[]
 	 */
-	protected function iiaKeys() {return [self::$II_OPTION];}
+	protected function iiaKeys():array {return [self::$II_OPTION];}
 
 	/**
 	 * 2017-04-16 https://github.com/mage2pro/core/blob/2.12.17/Payment/view/frontend/web/withOptions.js#L56-L72
