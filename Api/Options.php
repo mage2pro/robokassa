@@ -17,7 +17,7 @@ final class Options {
 	 * @used-by \Dfe\Robokassa\ConfigProvider::options()
 	 * @return array(string => mixed)
 	 */
-	static function forCheckout(float $a) {return array_values(array_filter(df_map_k(
+	static function forCheckout(float $a):array {return array_values(array_filter(df_map_k(
 		function($k, array $g) use($a) {return
 			!($items = array_values(array_filter($g[self::$ITEMS], function(array $i) use($a) {return
 				(!($max = dfa($i, self::$MAX)) || $a <= $max)
