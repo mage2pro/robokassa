@@ -69,7 +69,7 @@ final class Options {
 	 * @param null|string|int|IScope|Store $s [optional]
 	 * @return array(string => array(string => string))
 	 */
-	private static function p($s = null, bool $canUseDemo = false) {return dfcf(function($merchantId, $locale) {
+	private static function p($s = null, bool $canUseDemo = false):array {return dfcf(function($merchantId, $locale) {
 		$url = 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies'; /** @var string $url */
 		$r = []; /** @var array(string => array(string => string)) $r */
 		foreach (df_xml_parse(df_cache_get_simple('', 'df_http_get', [], $url, [
