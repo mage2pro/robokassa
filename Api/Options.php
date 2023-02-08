@@ -56,9 +56,8 @@ final class Options {
 	 * У ВестИнтерБанка отозвана лицензия ещё 2016-10-27,
 	 * но Робокасса почему-то всё равно эту опцию предлагает.
 	 * @used-by self::p()
-	 * @return bool
 	 */
-	private static function excluded(string $g, string $i) {return
+	private static function excluded(string $g, string $i):bool {return
 		('Bank' === $g && 'W1' === $i) || in_array($i, ['HandyBankFB', 'HandyBankVIB'])
 	;}
 
