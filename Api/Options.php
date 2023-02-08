@@ -33,8 +33,7 @@ final class Options {
 	)));}
 
 	/**
-	 * 2017-04-17
-	 * Возвращает массив [Label => Name], например: ["QCardR" => "Bank Card"]
+	 * 2017-04-17 Возвращает массив [Label => Name], например: ["QCardR" => "Bank Card"]
 	 * @used-by \Dfe\Robokassa\W\Event::optionTitle()
 	 * @param null|string|int|IScope|Store $s [optional]
 	 * @return array(string => string)
@@ -82,7 +81,7 @@ final class Options {
 	private static function p($s = null, $canUseDemo = false) {return dfcf(function($merchantId, $locale) {
 		$url = 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/GetCurrencies'; /** @var string $url */
 		$r = []; /** @var array(string => array(string => string)) $r */
-		foreach (df_xml_parse(df_cache_get_simple(null, 'df_http_get', [], $url, [
+		foreach (df_xml_parse(df_cache_get_simple('', 'df_http_get', [], $url, [
 			# 2017-04-15
 			# Using the «demo» account allows to receive the list of all Robokassa payment options.
 			# I use it only for testing and demonstration.

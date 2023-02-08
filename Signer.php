@@ -14,14 +14,13 @@ abstract class Signer extends \Df\PaypalClone\Signer {
 	 * @see \Dfe\Robokassa\Signer\Response::values()
 	 * @return string[]
 	 */
-	abstract protected function values();
+	abstract protected function values():array;
 
 	/**
 	 * 2017-04-10
 	 * @override
 	 * @see \Df\PaypalClone\Signer::sign()
 	 * @used-by \Df\PaypalClone\Signer::_sign()
-	 * @return string
 	 */
-	final protected function sign() {return md5(implode(':', dfa_flatten($this->values())));}
+	final protected function sign():string {return md5(implode(':', dfa_flatten($this->values())));}
 }

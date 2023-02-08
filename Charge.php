@@ -30,9 +30,8 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_Amount()
 	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
 	 */
-	protected function k_Amount() {return 'OutSum';}
+	protected function k_Amount():string {return 'OutSum';}
 
 	/**
 	 * 2017-08-19
@@ -48,9 +47,8 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_Email()
 	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
 	 */
-	protected function k_Email() {return 'Email';}
+	protected function k_Email():string {return 'Email';}
 
 	/**
 	 * 2017-08-19   
@@ -63,9 +61,8 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_MerchantId()
 	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
 	 */
-	protected function k_MerchantId() {return 'MerchantLogin';}
+	protected function k_MerchantId():string {return 'MerchantLogin';}
 	
 	/**
 	 * 2017-04-10
@@ -90,9 +87,8 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_RequestId()
 	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
 	 */
-	protected function k_RequestId() {return 'InvId';}
+	protected function k_RequestId():string {return 'InvId';}
 
 	/**
 	 * 2017-04-10
@@ -101,9 +97,8 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * @override
 	 * @see \Df\PaypalClone\Charge::k_Signature()
 	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
 	 */
-	protected function k_Signature() {return 'SignatureValue';}
+	protected function k_Signature():string {return 'SignatureValue';}
 
 	/**
 	 * 2017-04-10
@@ -112,7 +107,7 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * @used-by \Df\PaypalClone\Charge::p()
 	 * @return array(string => mixed)
 	 */
-	protected function pCharge() {$s = $this->s(); return [
+	protected function pCharge():array {$s = $this->s(); return [
 		# 2017-04-16
 		# «Optional, means language the client will use to communicate with your website.
 		# It can have the following values: en, ru.

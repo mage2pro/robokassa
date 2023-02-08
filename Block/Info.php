@@ -9,5 +9,5 @@ class Info extends \Df\Payment\Block\Info {
 	 * @see \Df\Payment\Block\Info::prepare()
 	 * @used-by \Df\Payment\Block\Info::prepareToRendering()
 	 */
-	final protected function prepare() {$this->si('Payment Option', $this->choiceT());}
+	final protected function prepare():void {$this->si('Payment Option', $this->choiceT());}
 }

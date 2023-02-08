@@ -33,7 +33,7 @@ final class Request extends \Dfe\Robokassa\Signer {
 	 * @used-by \Dfe\Robokassa\Signer::sign()
 	 * @return string[]
 	 */
-	protected function values() {return [
-		dfa($this->v(), ['MerchantLogin', 'OutSum', 'InvId', 'UserIP']), $this->s()->password1()
+	protected function values():array {return [
+		$this->v(['MerchantLogin', 'OutSum', 'InvId', 'UserIP']), $this->s()->password1()
 	];}
 }

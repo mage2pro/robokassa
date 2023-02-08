@@ -13,7 +13,7 @@ final class Basic extends CaseT {
 	/** 2017-04-17 */
 	function t03() {print_r(intval(df_my()));}
 
-	/** @test 2017-08-14 */
+	/** 2017-08-14 @test */
 	function t04() {
 		$s = dfps($this); /** @var S $s */
 		preg_match($s->v('identification_rules/regex'), 'adasdas111', $matches);

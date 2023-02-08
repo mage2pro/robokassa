@@ -11,10 +11,8 @@ final class Method extends \Df\PaypalClone\Method {
 	 * @override
 	 * @see \Df\Payment\Method::amountFormat()
 	 * @used-by \Df\Payment\Operation::amountFormat()
-	 * @param float|int $a
-	 * @return string
 	 */
-	function amountFormat($a) {return dff_2($a);}
+	function amountFormat(float $a):string {return dff_2($a);}
 
 	/**
 	 * 2017-04-16
@@ -33,9 +31,8 @@ final class Method extends \Df\PaypalClone\Method {
 	 * @see \Df\Payment\Method::amountFactor()
 	 * @used-by \Df\Payment\Method::amountFormat()
 	 * @used-by \Df\Payment\Method::amountParse()
-	 * @return int
 	 */
-	protected function amountFactor() {return 1;}
+	protected function amountFactor():int {return 1;}
 
 	/**
 	 * 2017-04-10

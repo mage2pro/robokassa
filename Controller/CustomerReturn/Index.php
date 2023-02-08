@@ -18,7 +18,6 @@ class Index extends \Df\Payment\CustomerReturn {
 	 * @override
 	 * @see \Df\Payment\CustomerReturn::isSuccess()
 	 * @used-by \Df\Payment\CustomerReturn::execute()
-	 * @return string
 	 */
-	final protected function isSuccess() {return !!df_request('SignatureValue');}
+	final protected function isSuccess():bool {return !!df_request('SignatureValue');}
 }

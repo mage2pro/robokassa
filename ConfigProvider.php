@@ -11,7 +11,7 @@ final class ConfigProvider extends \Df\Payment\ConfigProvider implements IOption
 	 * @used-by \Df\Payment\ConfigProvider::configOptions()
 	 * @return array(array('label' => string, 'value' => int|string, 'children' => <...>))
 	 */
-	function options() {return Options::forCheckout($this->amount());}
+	function options():array {return Options::forCheckout($this->amount());}
 
 	/**
 	 * 2017-04-12
@@ -20,5 +20,5 @@ final class ConfigProvider extends \Df\Payment\ConfigProvider implements IOption
 	 * @used-by \Df\Payment\ConfigProvider::getConfig()
 	 * @return array(string => mixed)
 	 */
-	protected function config() {return self::configOptions($this) + parent::config();}
+	protected function config():array {return self::configOptions($this) + parent::config();}
 }
